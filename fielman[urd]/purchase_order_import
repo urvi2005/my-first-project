@@ -1,0 +1,89 @@
+Got it 👍 — I’ll explain **very simple (easy language)**
+
+---
+
+# 🧠 What this module does
+
+👉 You upload a **CSV file**
+👉 System **automatically creates Purchase Order (PO)**
+
+No need to add products manually ❌
+
+---
+
+# 📂 CSV File Example
+
+```
+SKU,Quantity
+TP1,10
+TP2,20
+```
+
+👉 Meaning:
+
+* TP1 → product
+* 10 → quantity
+
+---
+
+# 🖥️ How to test (simple steps)
+
+### 1️⃣ Go to menu
+
+👉 Purchase → **Import Purchase Order**
+
+---
+
+### 2️⃣ Fill form
+
+* Select **Supplier**
+* Upload **CSV file**
+* Select **delimiter** (, or ;)
+* Set **max lines per PO**
+
+---
+
+### 3️⃣ Click button
+
+👉 Click **Import / Process**
+
+---
+
+# 🔍 What will happen
+
+### ✅ If everything correct:
+
+* PO will be created
+* Products added
+* Quantity correct
+
+---
+
+### ❌ If product not found:
+
+* System will show **error**
+
+---
+
+### 🔄 If too many lines:
+
+* PO will **split into multiple POs**
+
+Example:
+
+* Limit = 2
+* 5 products → 3 POs
+
+---
+
+# ✅ Simple summary
+
+👉 Upload file
+👉 Click import
+👉 PO automatically created
+👉 Large PO → split
+👉 Wrong product → error
+
+---
+
+If you want, I can check your CSV file and tell you why it's not working 👍

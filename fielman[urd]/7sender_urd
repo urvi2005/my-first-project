@@ -1,0 +1,343 @@
+7sender_urd
+
+import ware house
+
+backend_adapter.py  chage that file
+
+def search_read(self, filters=None, http_method=None, **kwargs):
+        """
+        Search records according to some criteria
+        and returns their information
+        """
+        resource_path = self.get_default_resource_path(
+            "search_read", filters=filters, **kwargs
+        )
+        result = [{"name": "Default","country": {"iso2": "de","name": "Germany"}}]
+        return result
+
+    def read(self, external_id=None, attributes=None, http_method=None, **kwargs):
+        """Returns the information of a record
+        :rtype: dict
+        """
+        resource_path = self.get_default_resource_path(
+            "read", external_id=external_id, attributes=attributes, **kwargs
+        )
+        result = [{"name": "Default","country": {"iso2": "de","name": "Germany"}}]
+        return result
+
+carries mate
+
+def read(self, external_id=None, attributes=None, http_method=None, **kwargs):
+        """Returns the information of a record
+        :rtype: dict
+        """
+        resource_path = self.get_default_resource_path(
+            "read", external_id=external_id, attributes=attributes, **kwargs
+        )
+        result = [
+            {"code": "asm", "countries": ["ES"], "name": "ASM"},
+            {"code": "bpost", "countries": ["BE"], "name": "Bpost"},
+            {
+                "code": "bring",
+                "countries": ["NO", "DK", "SE", "FI"],
+                "name": "bring",
+            },
+            {"code": "brt", "countries": ["IT"], "name": "BRT Bartolini"},
+            {"code": "celeritas", "countries": ["ES"], "name": "Celeritas"},
+            {
+                "code": "ceskaposta",
+                "countries": ["CZ", "SK"],
+                "name": "Česká Pošta",
+            },
+            {
+                "code": "chronopost",
+                "countries": ["FR"],
+                "name": "Chronopost France",
+            },
+            {"code": "colisprive", "countries": ["FR"], "name": "Colis Privé"},
+            {"code": "colissimo", "countries": ["FR"], "name": "Colissimo"},
+            {"code": "correos", "countries": ["ES"], "name": "Correos de España"},
+            {
+                "code": "deutschepost",
+                "countries": ["DE"],
+                "name": "Deutsche Post Mail",
+            },
+            {
+                "code": "dhl",
+                "countries": [
+                    "AT",
+                    "FR",
+                    "DE",
+                    "PL",
+                    "SK",
+                    "FI",
+                    "DK",
+                    "SE",
+                    "BE",
+                    "LU",
+                    "NL",
+                    "ES",
+                    "IT",
+                    "GB",
+                    "AF",
+                    "PT",
+                    "BG",
+                ],
+                "name": "DHL",
+            },
+            {
+                "code": "dpd",
+                "countries": [
+                    "CH",
+                    "AT",
+                    "FR",
+                    "DE",
+                    "PL",
+                    "CZ",
+                    "SK",
+                    "FI",
+                    "DK",
+                    "NO",
+                    "BE",
+                    "LU",
+                    "NL",
+                    "GB",
+                    "PT",
+                    "IE",
+                    "EE",
+                    "LT",
+                    "LV",
+                ],
+                "name": "DPD",
+            },
+            {"code": "geis", "countries": ["CZ"], "name": "geis"},
+            {
+                "code": "gls",
+                "countries": ["FR", "PL", "IT", "DE", "ES", "CH"],
+                "name": "GLS",
+            },
+            {"code": "hermes", "countries": ["DE", "GB"], "name": "Hermes"},
+            {"code": "in time", "countries": [], "name": "in time"},
+            {
+                "code": "intime",
+                "countries": ["SK", "HU", "RO", "BG", "SI", "HR"],
+                "name": "intime",
+            },
+            {"code": "kiala", "countries": [], "name": "Kiala"},
+            {"code": "meteor", "countries": [], "name": "meteor"},
+            {
+                "code": "mondialrelay",
+                "countries": ["FR", "BE", "NL"],
+                "name": "Mondial Relay",
+            },
+            {"code": "mrw", "countries": [], "name": "MRW"},
+            {"code": "parcelforce", "countries": ["GB"], "name": "Parcel Force"},
+            {"code": "postat", "countries": ["AT", "NL"], "name": "Austrian Post"},
+            {
+                "code": "posti",
+                "countries": ["FI", "EE", "LV", "LT"],
+                "name": "Posti",
+            },
+            {"code": "Postlu", "countries": ["LU"], "name": "Postlu"},
+            {
+                "code": "postnl",
+                "countries": ["NL", "BE"],
+                "name": "PostNL Domestic",
+            },
+            {
+                "code": "postnord",
+                "countries": ["FI", "DK", "NO", "SE"],
+                "name": "PostNord Logistics",
+            },
+            {"code": "ppl", "countries": ["CZ"], "name": "ppl"},
+            {"code": "puntopack", "countries": [], "name": "puntopack"},
+            {"code": "royalmail", "countries": ["GB"], "name": "Royal Mail"},
+            {"code": "seur", "countries": ["ES", "PT"], "name": "Spanish Seur"},
+            {
+                "code": "slovenskaposta",
+                "countries": ["SK"],
+                "name": "slovenskaposta",
+            },
+            {"code": "swisspost", "countries": ["CH"], "name": "Swiss Post"},
+            {"code": "tnt", "countries": ["IT", "DE"], "name": "TNT"},
+            {"code": "tourlineexpress", "countries": [], "name": "tourlineexpress"},
+            {
+                "code": "ups",
+                "countries": [
+                    "CH",
+                    "AT",
+                    "FR",
+                    "DE",
+                    "PL",
+                    "CZ",
+                    "SK",
+                    "FI",
+                    "DK",
+                    "NO",
+                    "SE",
+                    "BE",
+                    "LU",
+                    "NL",
+                    "ES",
+                    "IT",
+                    "CA",
+                    "US",
+                ],
+                "name": "UPS",
+            },
+            {"code": "yodel", "countries": ["GB"], "name": "Yodel Domestic"},
+            {"code": "acs courier", "countries": ["GR"], "name": "ACS Courier"},
+            {
+                "code": "nexive",
+                "countries": ["IT"],
+                "name": "Nexive (TNT Post Italy)",
+            },
+            {"code": "poczta-polska", "countries": ["PL"], "name": "Poczta Polska"},
+            {
+                "code": "usps",
+                "countries": [],
+                "name": "United States Postal Service",
+            },
+            {"code": "asendia", "countries": ["DE"], "name": "Asendia"},
+            {"code": "setup", "countries": ["DE"], "name": "Label Setup Carrier"},
+            {"code": "dhl_freight", "countries": ["SE"], "name": "DHL Freight"},
+            {
+                "code": "dhl_express",
+                "countries": ["CH", "NO", "SE", "DE"],
+                "name": "DHL Express",
+            },
+            {"code": "correios", "countries": ["BR"], "name": "Correios"},
+            {
+                "code": "camiontransport",
+                "countries": ["CH"],
+                "name": "Camion Transport",
+            },
+            {"code": "totalexpress", "countries": [], "name": "Total Express BR"},
+            {"code": "brta", "countries": ["IT"], "name": "BRT A"},
+            {"code": "dachser", "countries": ["DE"], "name": "Dachser"},
+            {
+                "code": "budbee",
+                "countries": ["SE", "DK", "FI", "NL"],
+                "name": "Budbee",
+            },
+            {
+                "code": "seur_international",
+                "countries": ["ES"],
+                "name": "Spanish Seur International",
+            },
+            {"code": "Posteitaliane", "countries": ["IT"], "name": "Posteitaliane"},
+            {
+                "code": "SDAposteitaliane",
+                "countries": ["IT"],
+                "name": "SDA Posteitaliane",
+            },
+            {"code": "raben", "countries": [], "name": "Raben"},
+            {"code": "kuehne-nagel", "countries": ["DE"], "name": "Kuehne + Nagel"},
+            {"code": "dhlexpress", "countries": ["DE"], "name": "DHL express"},
+            {
+                "code": "nox-nachtexpress",
+                "countries": ["DE"],
+                "name": "Nox NachtExpress",
+            },
+            {"code": "ao", "countries": ["DE"], "name": "AO Logistics"},
+            {"code": "inpost", "countries": ["PL"], "name": "Inpost Paczkomaty"},
+            {"code": "russianpost", "countries": ["RU"], "name": "Russian Post"},
+            {"code": "eurodis", "countries": [], "name": "Eurodis"},
+            {"code": "magyarposta", "countries": ["HU"], "name": "Magyar Posta"},
+            {"code": "fan", "countries": ["RO"], "name": "Fan Courrier Express"},
+            {
+                "code": "fedexpoland",
+                "countries": ["DE"],
+                "name": "Fedex Poland Domestic",
+            },
+            {"code": "dpdpoland", "countries": [], "name": "DPD Poland"},
+            {"code": "heppner", "countries": ["DE"], "name": "heppner"},
+            {"code": "hes", "countries": ["DE"], "name": "hes -2mann-handling"},
+            {"code": "fedex", "countries": ["DE"], "name": "fedex"},
+            {"code": "anpost", "countries": ["IE"], "name": "anpost"},
+            {"code": "7senders", "countries": ["AT"], "name": "LDN"},
+            {"code": "dhlparceluk", "countries": ["GB"], "name": "DHL Parcel UK"},
+            {"code": "teamc", "countries": ["GB", "GG"], "name": "teamc"},
+            {
+                "code": "sps-intime",
+                "countries": ["SI", "SK", "HU", "RO", "BG", "HR"],
+                "name": "sps-intime",
+            },
+            {"code": "rhenus", "countries": ["DE"], "name": "rhenus"},
+            {
+                "code": "sps",
+                "countries": ["SK", "HU", "RO", "BG", "SI", "HR"],
+                "name": "SPS",
+            },
+            {"code": "sending", "countries": ["ES"], "name": "Sending"},
+            {"code": "hrparcel", "countries": ["IT"], "name": "HR-Parcel"},
+            {"code": "xpressen", "countries": ["DK"], "name": "Xpressen"},
+            {"code": "burd", "countries": ["DK"], "name": "Burd Delivery"},
+            {"code": "glovo", "countries": [], "name": "Glovo"},
+            {
+                "code": "carrier1",
+                "countries": [
+                    "DE",
+                    "AT",
+                    "ES",
+                    "BE",
+                    "FI",
+                    "NL",
+                    "PL",
+                    "PT",
+                    "SE",
+                    "SI",
+                    "SK",
+                ],
+                "name": "carrier1",
+            },
+            {"code": "QATestCarrier", "countries": [], "name": "QA Test Carrier"},
+            {"code": "00001", "countries": [], "name": "rn1"},
+            {"code": "QA_CARRIER", "countries": ["DE"], "name": "QA_CARRIER"},
+            {"code": "7sendersauto", "countries": ["DE"], "name": "7sendersauto"},
+            {
+                "code": "carrier2",
+                "countries": ["CH", "AT", "CZ", "DE"],
+                "name": "carrier2",
+            },
+            {
+                "code": "carrier3",
+                "countries": ["CH", "LV", "NL", "SI"],
+                "name": "carrier3",
+            },
+            {
+                "code": "carrier4",
+                "countries": ["BE", "GB", "PL", "PT"],
+                "name": "carrier4",
+            },
+            {
+                "code": "carrier5",
+                "countries": ["DK", "NO", "SE"],
+                "name": "carrier5",
+            },
+            {"code": "carrier6", "countries": ["CZ", "SK"], "name": "carrier6"},
+            {"code": "carrier7", "countries": ["DK", "NO"], "name": "carrier7"},
+            {"code": "carrier8", "countries": ["FI", "LV"], "name": "carrier8"},
+            {"code": "carrier9", "countries": ["FR", "IT"], "name": "carrier9"},
+            {"code": "carrier10", "countries": ["ES"], "name": "carrier10"},
+            {"code": "carrier11", "countries": ["FR"], "name": "carrier11"},
+            {"code": "carrier12", "countries": ["GB"], "name": "carrier12"},
+            {"code": "carrier13", "countries": ["IT"], "name": "carrier13"},
+            {"code": "mondial-relay", "countries": ["FR"], "name": "mondial-relay"},
+        ]
+        return result
+    
+
+    after we need ti cimmnent
+
+    /home/bizzappdev/work space/fielmann-addons/odoo/custom/src/fielmann-addons/connector_7senders/components/importer.py
+
+    line 60 to 63
+
+    comment pls:
+
+    self.process_next_page(
+        filters=filters, force=force, job_options=job_options, **kwargs
+    )
+     
+    ye jab tab carrire milegi or vo run hoga tab tab infinate loop create hoga jo, na ho isha liye ishaka use hota he

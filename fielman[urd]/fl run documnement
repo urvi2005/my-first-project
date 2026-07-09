@@ -1,0 +1,94 @@
+fl run documnement
+
+----
+
+git ck -b 17.0-T-03116-Version-bump-for-Fielmann-Stock-Workflow-module-BAD-URD
+
+git push
+
+[ADD][17.0][T-03116]fielmann_stock_workflow:Version bump for Fielmann Stock Workflow module-BAD-URD
+
+----
+
+git commit -m "[FIX][17.0]connector_ndl: rebase with 17.0 branch"
+
+git push
+
+----
+
+if rebase into problem then: git rebase --abort
+
+-----
+
+
+if brach rebase levanu hoy tiyare:
+
+git ck 17.0
+
+git ck 17.0-T-03073-Allign-for-all-categories-the-change-for-Weight-BAD-URD
+
+git rebase 17.0
+
+tig
+
+git push --force-with-lease 
+
+----
+pre-commit install
+
+pre-commit run take more time due to same problem 
+
+pre-commit autoupdate
+
+
+pre-commit run -a
+
+pre-commit clean
+
+git add .pre-commit-config.yaml
+
+
+----
+test
+
+ docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=URD_FL_Test_DB_Confirmation_Batch_30_03 -d URD_FL_Test_DB_Confirmation_Batch_30_03 --limit-time-real=999999 --limit-time-cpu=99999999 -i stock,connector_base_pim,connector_base_ecommerce,api_payload_history,queue_job_related_action
+
+ docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=URD_FL_Test_DB_Confirmation_Batch_30_03 -d URD_FL_Test_DB_Confirmation_Batch_30_03 --limit-time-real=999999 --limit-time-cpu=99999999 -i connector_stibo --test-enable --worker=0 --stop-after-init
+
+--------
+
+rebase
+
+ git ck 17.0
+ git pull
+ git ck 17.0-T-03069-change-on-weight-attributes-for-categories-eyeware-BAD-TUG
+ git rebase 17.0
+
+------
+
+if allredy prort use then
+
+ docker compose down -d
+ docker compose down
+ docker ps
+ docker kill eabb80a999ed
+ docker kill 8357b48cd1d7
+8b0891b17f83
+
+after localhost not work so
+
+docker compose down
+
+docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=URD_FL_Test_ndl_data_URD_30_03 -d URD_FL_Test_ndl_data_URD_30_03 --limit-time-real=999999 --limit-time-cpu=99999999 -i connector_base_ecommerce,connector_warehouse,connector_base_rx,api_payload_history,queue_job_related_action,sale_stock
+
+
+docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=URD_FL_Test_ndl_data_URD_30_03  -d URD_FL_Test_ndl_data_URD_30_03  --limit-time-real=999999 --limit-time-cpu=99999999 -i connector_ndl --test-enable --worker=0 --stop-after-init
+
+docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=URD_FL_Test_blocklist_ziess_01_06  -d URD_FL_Test_blocklist_ziess_01_06  --limit-time-real=999999 --limit-time-cpu=99999999 -i product,sale_stock,stock_delivery,purchase,api_payload_history,queue_job_related_action,connector_base_ecommerce,connector_base_pim,stock_split_picking,fielmann_sale_workflow,fielmann_stock_reserve
+
+docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=URD_FL_Test_blocklist_ziess_01_06  -d URD_FL_Test_blocklist_ziess_01_06  --limit-time-real=999999 --limit-time-cpu=99999999 -i connector_zeiss_scayle --test-enable --worker=0 --stop-after-init
+
+pls check my chages and mr to pls add test cases pls pls do not remove any think into code only add tast cases acodagaly pls 
+
+
+docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=URD_FL_Test_ndl_data_URD_30_03 -d URD_FL_Test_ndl_data_URD_30_03 --limit-time-real=999999 --limit-time-cpu=99999999 -i connector_base_ecommerce,connector_warehouse,connector_base_rx,api_payload_history,queue_job_related_action,sale_stock

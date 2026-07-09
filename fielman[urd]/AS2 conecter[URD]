@@ -1,0 +1,84 @@
+AS2 conecter[URD]
+
+XML DATA
+
+Run on:
+
+http://172.18.0.5:8069/web?debug=1#id=313&cids=1-4&menu_id=261&action=451&model=sale.order&view_type=form
+
+
+1)http://localhost:8000/admin/pyas2/message/45/change/
+
+use: i)send 2 file to AS2 using edi 
+     ii)message send and recived karva mate use thay chhe aano
+
+change:
+
+must po is in draft set then 
+setting
+   |
+print
+   |
+   print sparate oder
+
+1) Copper_order_response (1) (2).xml
+
+i) clientOrderID="0P00024_24" if purchase order = P00024
+ii) supplierID="321132" if Django Administration in message downloded file into supplierID="321132".
+iii)clientSupplierID="43343" if if Django Administration in message downloded file into clientSupplierID="0000043343"
+iv)orderResponseID="32131224334131" alwayse new add pls
+
+
+Note: orderItemStatus="4"
+
+      you have provied 
+
+
+
+edi process
+|
+click on as2 messages
+|
+pyloed into show file
+
+2) COOPER_ASN_2022052705050879_PW9973177 (1).xml
+
+i) clientOrderID="0P00024_24" if purchase order = P00024
+ii) supplierID="321132" if Django Administration in message downloded file into supplierID="321132".
+iii)clientSupplierID="43343" if if Django Administration in message downloded file into clientSupplierID="0000043343"
+iv)advancedShippingNoteID="PW921432391244337433333322222d331300" alwayse new add pls
+
+step 1) click on edi order then 
+
+     2) go to Django administration
+
+        pyAS2 File Transfer Server
+                  |
+                Partners 
+                  | 
+        select i)p2 then 
+               ii)action:  Send a message to the selected partner 
+               iii)click on go
+
+               iv)Organization: Django change with p1
+               v) click on send message
+
+
+    both file can be send proper way
+
+Edi Status
+
+
+AS2 connecter
+
+create purchare order viya reoreing rule
+
+crtae new product
+
+make sure
+
+brcode must be 12 digit
+
+
+
+

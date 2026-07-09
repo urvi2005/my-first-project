@@ -1,0 +1,62 @@
+create new database using dump db 
+
+docker compose run odoo createdb v17-mig-fielmann-URD-123-26-May && docker compose up -d && docker compose exec -T db psql -U odoo -d  v17-mig-fielmann-URD-123-26-May < /home/bizzappdev/Downloads/Fielmann/18_may_latest_routes_db.sql (Location of your zip or sql)
+
+docker compose exec db psql -U odoo v17-mig-fielmann-URD-May
+
+delete from fetchmail_server;
+delete from ir_mail_server;
+update ir_cron set active=False;
+delete from ir_config_parameter where key ilike '%database.expiration_date%';
+
+ docker compose run --rm -p 8069:8072 odoo --db-filter=v17-mig-fielmann-URD-123-26-May -d v17-mig-fielmann-URD-123-26-May --limit-time-real=999999 --limit-time-cpu=99999999 -u fielmann_stock_workflow,fielmann_base_barcode
+
+
+
+ham to babu warehouse database: 
+
+docker compose run --rm -p 8069:8072 odoo --db-filter=v17-mig-fielmann-URD-data-15-May-demo -d v17-mig-fielmann-URD-data-15-May-demo --limit-time-real=999999 --limit-time-cpu=99999999 -u fielmann_stock_workflow,fielmann_base_barcode
+
+
+
+AKS DUMP DB:
+
+docker compose run --rm -p 8069:8072 odoo --db-filter=v17-mig-fielmann-URD-dumpdb-21-May-demo -d v17-mig-fielmann-URD-dumpdb-21-May-demo --limit-time-real=999999 --limit-time-cpu=99999999 -u fielmann_stock_workflow,fielmann_base_barcode
+
+
+docker compose exec db psql -U odoo 17_EE_fielmann1_URD_07_Nov_20255 
+
+UPDATE sale_order
+SET date_order = '2026-05-26 10:00:00'
+WHERE name = URD/SDE03410;
+
+
+docker compose run --rm -p 127.0.0.1:8072:8072 odoo --db-filter=17_EE_fielmann1_URD_07_Nov_20255 -d 17_EE_fielmann1_URD_07_Nov_20255 --limit-time-real=999999 --limit-time-cpu=99999999
+
+UPDATE res_users
+SET password = 'admin'
+WHERE login = 'admin';
+
+AS2 CONNRCTER run for use
+
+docker compose run --rm -p 192.168.222.46:8072:8072 odoo --db-filter=v17-mig-fielmann-URD-dumpdb-21-May-demo -d v17-mig-fielmann-URD-dumpdb-21-May-demo --limit-time-real=999999 --limit-time-cpu=99999999 
+
+
+
+UPDATE stock_picking
+SET create_date = '2026-05-04 10:00:00'
+WHERE name = BPAA/RAR/00148;
+
+
+NEW CHOMO WAREHOUSE:
+
+docker compose run odoo createdb v17-mig-fielmann-URD-May && docker compose up -d && docker compose exec -T db psql -U odoo -d  v17-mig-fielmann-URD-May < /home/bizzappdev/Downloads/Fielmann/v17_FL_TEST_DB_20may.sql
+
+docker compose exec db psql -U odoo v17-mig-fielmann-URD-May
+
+delete from fetchmail_server;
+delete from ir_mail_server;
+update ir_cron set active=False;
+delete from ir_config_parameter where key ilike '%database.expiration_date%';
+
+docker compose run --rm -p 8069:8072 odoo --db-filter=v17-mig-fielmann-URD-May -d v17-mig-fielmann-URD-May --limit-time-real=999999 --limit-time-cpu=99999999 -u fielmann_stock_workflow,fielmann_base_barcode

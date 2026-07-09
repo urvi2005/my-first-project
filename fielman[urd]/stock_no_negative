@@ -1,0 +1,32 @@
+stock_no_negative
+
+How to Test stock_no_negative Module at User Level
+Based on the code, here's how to verify the functionality:
+Setup Required:
+1. Configure Product Category (Inventory → Configuration → Product Categories):
+   - Select a product category
+   - Enable "Forbid Negative Stock" checkbox
+2. Configure Product (Inventory → Products → Products):
+   - Select a stockable product (type = "Storable Product")
+   - Enable "Forbid Negative Stock" checkbox
+3. Configure Stock Location (Inventory → Configuration → Locations):
+   - Select an internal/transit location
+   - Enable "Forbid Negative Stock" checkbox
+
+Test Scenarios:
+Test 1: Should Block Negative Stock
+1. Create a Delivery Order (Inventory → Operations → Deliveries)
+2. Add a product that has forbid_negative_stock = True
+3. Set quantity greater than available stock
+4. Click Validate
+5. Expected: ValidationError with message: "You cannot validate this stock operation because the stock level of the product would become negative..."
+Test 2: Should Allow Negative Stock
+1. Disable forbid_negative_stock on product/category/location
+2. Create a Delivery Order
+3. Validate with quantity greater than available stock
+4. Expected: Stock operation validates successfully, stock becomes negative
+Test 3: Products with Lots
+1. Use a tracked product (lot tracking enabled)
+2. Create move line with lot details
+3. Try to validate without sufficient stock
+4. Expected: Error message includes lot information

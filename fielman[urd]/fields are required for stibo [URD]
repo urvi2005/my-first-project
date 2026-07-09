@@ -1,0 +1,9 @@
+fields are required for importing a product in Stibo
+
+1.AT_BrandNameCalc
+2.AT_ProductNameLong
+3.AT_SubCategoryFinal
+4.AT_EcomEAN
+5.AT_DisplayCategory
+6.AT_SAP_GroupArticleKey
+7.AT_GrossWeight

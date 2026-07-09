@@ -1,0 +1,104 @@
+everstock export
+
+that must configare:
+
+Everstox product export Models > Products > exporter.py
+comment this line
+```
+self._test_mode_import_first()
+```
+
+Export DO to Everstox
+
+everstox > models > DO > common > common_picking_out.py
+
+comment these lines
+```
+ _model_export_dependencies = [
+        (
+            "everstox.product.product",
+            "move_ids.product_id",
+        )
+    ]
+```
+
+===================================
+
+Everstox Backend configatre:
+
+
+
+====================================
+
+====================================
+Import warehouse:
+
+Name: Demo Everstox Warehouse
+Reference: Fielmann
+Cut Off Window: 0
+Cut Off Type: static
+Warehouse URL: 34534534534
+Backend: Everstox
+Warehouse: YourCompany
+Partner Source Field: City (Contact)
+Create Date time: 02/18/2026 18:00:00
+Update Date time: 02/18/2026 18:00:00
+Cut Off time: 00:00
+ID on Remote: 23534645645
+Test Warehouse Token: 542353453
+
+
+====================================
+
+====================================
+
+binding manule crate karvani hoy 
+
+open sale order line in to click on product ti open product from view
+
+go to everstock connecter
+
+then activate dibare mode 
+
+open from view 
+
+go to inherite view
+
+open    connector_everstox.product_normal_form_view
+
+and remove
+
+aesa hona chahiye
+
+<xpath expr="//notebook" position="inside">
+                <page string="Everstox Connector" name="everstox_connector" groups="connector.group_connector_manager">
+                    <group string="Bindings">
+                        <field name="everstox_bind_ids">
+                            <tree>
+                                <field name="backend_id" widget="selection"/>
+                                <field name="external_id"/>
+                                <button name="action_open_in_remote" type="object" class="oe_highlight" string="OPEN IN EVERSTOX"/>
+                            </tree>
+                            <form string="Everstox Product" delete="false" edit="false" create="false">
+                                <group>
+                                    <group>
+                                        <field name="backend_id" widget="selection"/>
+                                        <field name="external_id"/>
+                                    </group>
+                                    <group>
+                                        <div style="min-width: 300px; max-width: 300px;">
+                                            <label for="action_open_in_remote" string="Product(Everstox)" style="margin-right: 10px;" class="oe_inline"/>
+                                        <button name="action_open_in_remote" type="object" class="oe_highlight" string="OPEN IN EVERSTOX"/>
+                                        </div>
+                                    </group>
+                                </group>
+                                <!-- T-02320: Added API Payload History -->
+                                <separator/>
+                                <group name="api_payload_history_everstox_product" string="API Payload History" invisible="not api_payload_history_ids">
+                                    <field name="api_payload_history_ids" nolabel="1" colspan="2"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </page>
+            </xpath>

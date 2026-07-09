@@ -1,0 +1,94 @@
+Hoya Order Creation Process
+Step 1: Configure Shipping Method
+
+Go to:
+Sales → Configuration → Sales Orders → Shipping Methods
+
+Open or create the shipping method:
+“Eshop Connector”
+
+Configure the following fields:
+
+Eshop Carrier Code: DPD
+
+Is Express Carrier: ✅ True (Boolean)
+
+The carrier must be included in the payload as:
+
+"carrier": {
+    "key": "DPD"
+}
+
+===============================================
+
+Step 2: SCAYLE Order – RX + Express Condition
+
+If a SCAYLE order meets both conditions:
+
+Order type is RX
+
+Delivery method is Express
+
+Then:
+
+A new boolean field “Consider Manual” will automatically be set to True on the Zeiss order.
+
+To Verify:
+
+Open the SCAYLE order.
+
+Open the related Zeiss order.
+
+Confirm:
+
+Consider Manual: ✅ True
+
+==================================================
+
+Step 3: Email Configuration (Hoya Email State)
+
+Go to:
+Settings → Technical → Email → Emails
+
+Check the Hoya email send state to ensure the email has been processed correctly.
+
+=====================================================
+
+Step 4: System Parameter Configuration
+
+Navigate to:
+Settings → Technical → Parameters → System Parameters
+
+A system parameter must be configured:
+
+Key: hoya_manual_order.default_product_tmpl_id
+
+Value: 107
+
+This parameter defines the default product template ID used for processing manual Hoya orders.
+
+=====================================================
+
+Step 5: Manual Hoya Order Creation
+
+Click on Manual Hoya Order.
+
+In the wizard, the Order Type field provides two options:
+
+🔹 Stock
+
+The SD Order ID will:
+
+Be auto-generated (8-digit number)
+
+Be read-only
+
+🔹 Cross-dock
+
+The user must manually enter the SD Order ID.
+
+===================================================
+
+step 6: barcode
+
+product/ orders/ziess order

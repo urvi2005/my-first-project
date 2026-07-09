@@ -1,0 +1,37 @@
+user_readonly
+
+fanality
+
+📝 Step 1: Install Module
+
+Go to Apps in Odoo (Developer Mode ON).
+
+Search for Generic Read Only User Access.
+
+Click Install.
+
+✅ Now the module is active in your database.
+
+📝 Step 2: Create Test User
+
+Settings → Users & Companies → Users → Create
+
+Name: Test Readonly
+
+Login: testreadonly
+
+Email: anything
+
+Groups: Internal User only
+
+Save user.
+
+📝 Step 3: Assign Read Only
+
+Open the user form. You will see 2 buttons (from the module):
+
+👁 Readonly → Click this.
+✅ readonly = True
+✅ User added to group Read Only Access.
+
+✏ Read/Write → Click to revert.

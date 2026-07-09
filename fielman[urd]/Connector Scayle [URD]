@@ -1,0 +1,1311 @@
+Version → v1
+
+Location → http://scyle.gmail.com
+
+Shop Key → fa
+
+Token → (empty / dot)
+
+Code → PL
+
+Shop Id → 1006
+
+Backend Group → Group1
+
+Warehouse → Babu Warehouse
+
+Pricelist → Default EUR pricelist (EUR)
+
+Country → Poland
+
+Sunglasses Product → [1022643] DemoProduct1
+
+Company → My Company (San Francisco)
+
+eShop → PL SUB -> customer(contect) mast need to same branch number and InterCompany (true)
+
+Default Language → (empty)
+
+Activity User → (empty)
+
+Payment Method → pl_cod
+
+Debug Mode → Checked (True)
+
+Staging Panel URL → test
+
+7senders Order URL → https://www.fielmann.pl
+
+7senders Language → pl
+
+
+
+
+---
+
+
+{
+    "addresses": {
+        "billing": {
+            "additional": "Jihocesk\u00fd kraj",
+            "city": "Bechyne",
+            "countryCode": "PL",
+            "firstName": "Pledra",
+            "gender": "m",
+            "houseNumber": "1966",
+            "lastName": "Team",
+            "phoneNumber": "00420266772600",
+            "street": "\u0160koln\u00ed",
+            "streetHouseNumber": "\u0160koln\u00ed 1966",
+            "zipCode": "391 65"
+        },
+        "shipping": {
+            "additional": "Jihocesk\u00fd kraj",
+            "city": "Bechyne",
+            "collectionPoint": null,
+            "countryCode": "PL",
+            "firstName": "Pledra",
+            "gender": "m",
+            "houseNumber": "1966",
+            "lastName": "Team",
+            "phoneNumber": "00420266772600",
+            "state": null,
+            "street": "\u0160koln\u00ed",
+            "streetHouseNumber": "\u0160koln\u00ed 1966",
+            "zipCode": "391 65"
+        }
+    },
+    "branchNumber": "0695",
+    "carrier": {
+        "key": "DPD"
+    },
+    "companyId": 1000,
+    "cost": {
+        "appliedFees": [
+            {
+                "amount": {
+                    "withTax": {{appliedFeesWithTax}},
+                    "withoutTax": {{appliedFeesWithoutTax}}
+                },
+                "category": "delivery",
+                "key": "postcz_standard",
+                "option": "deliveryCosts",
+                "tax": {
+                    "vat": {
+                        "amount": {{appliedFeesTaxAmount}},
+                        "rate": {{appliedFeesTaxRate}}
+                    }
+                }
+            }
+        ],
+        "costCapture": {{costCapture}},
+        "tax": {
+            "vat": {
+                "amount": {{taxAmountTotalPrice}}
+            }
+        },
+        "withTax": {{withTaxTotalPrice}},
+        "withTaxWithMembershipDiscountWithoutServiceCosts": {{withTaxTotalPrice}},
+        "withoutTax": {{withoutTaxTotalPrice}},
+        "withoutTaxWithMembershipDiscount": {{withoutTaxTotalPrice}}
+    },
+    "countryCode": "PL",
+    "customData": {
+        "branchNumber": "0695",
+        "kls.ordertype": "za",
+        "kls.profitCenter": "123"
+    },
+    "customer": {
+        "customData": [],
+        "email": "team@pledra.com",
+        "publicKey": "763",
+        "referenceKey": "763",
+        "taxNumber": null,
+        "vendorReferenceKey": null
+    },
+    "customerPublicKey": null,
+    "fulfillingMerchantKey": "fim",
+    "id": 5656,
+    "items": [
+        {
+            "currencyCode": "CZK",
+            "customData": {
+                "aybaOttoReservationDetails": [],
+                "prescriptionValues": {
+                    "left": {
+                        "axis": 2,
+                        "cylinder": -2.5,
+                        "pd": 25.5,
+                        "sphere": -4.5
+                    },
+                    "right": {
+                        "axis": 1,
+                        "cylinder": -3.25,
+                        "pd": 25,
+                        "sphere": -5.5
+                    }
+                },
+                "prescriptionValuesDisplay": {
+                    "left": {
+                        "axis": "2",
+                        "cylinder": "-2,50",
+                        "pd": "25,5",
+                        "sphere": "-4,50"
+                    },
+                    "right": {
+                        "axis": "1",
+                        "cylinder": "-3,25",
+                        "pd": "25,0",
+                        "sphere": "-5,50"
+                    }
+                },
+                "shopId": 10007
+            },
+            "id": 17009,
+            "itemGroup": {
+                "id": "28486286",
+                "isMainItem": false,
+                "isRequired": true
+            },
+            "localizedName": "Fielmann MC 592 CL",
+            "merchantKey": "default",
+            "merchantProductVariantId": 154691,
+            "merchantProductVariantReferenceKey": "24434",
+            "merchantReservationKey": null,
+            "name": "Fielmann MC 592 CL",
+            "orderItemId": {{orderItemId1}},
+            "packagingGroupId": null,
+            "price": {{orderItemPrice1}},
+            "priceWithoutTax": {{orderItemPriceWithoutTax1}},
+            "productVariantId": 154691,
+            "quantity": 1,
+            "shippingWarehouseReferenceKey": "barsbuettel",
+            "tax": {{orderItemTax1}},
+            "taxAmount": {{orderItemTaxAmount1}},
+            "vendorReferenceKey": null,
+            "vendorSize": null,
+            "warehouseReferenceKey": "barsbuettel",
+            "subItems": [
+                {
+                    "attributes": [
+                        {
+                            "isLocked": false,
+                            "name": "rxLensType",
+                            "type": "simple",
+                            "value": "ei"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxVariantSorting",
+                            "type": "simple",
+                            "value": "1"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "isSellableForFree",
+                            "type": "simple",
+                            "value": "true"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxAdditionalInfo",
+                            "type": "localizedString",
+                            "value": {
+                                "de_DE": "Einst\u00e4rke"
+                            }
+                        }
+                    ],
+                    "currencyCode": "CZK",
+                    "customData": {
+                        "aybaOttoReservationDetails": [],
+                        "hideSubItem": true,
+                        "shopId": 10007,
+                        "kls.ordertype": "za"
+                    },
+                    "id": 17005,
+                    "itemGroup": {
+                        "id": "28486286",
+                        "isMainItem": false,
+                        "isRequired": true
+                    },
+                    "localizedName": "Nov\u00e9: Jednoohniskov\u00e9 br\u00fdle",
+                    "merchantKey": "default",
+                    "merchantProductVariantId": 142934,
+                    "merchantProductVariantReferenceKey": "type_ei",
+                    "merchantReservationKey": null,
+                    "name": "Neu: Brille mit Einst\u00e4rkengl\u00e4sern",
+                    "orderItemId": {{subItemOrderId1}},
+                    "packagingGroupId": null,
+                    "price": {{subItemPrice1}},
+                    "priceWithoutTax": {{subItemPriceWithoutTax1}},
+                    "productVariantId": 142934,
+                    "quantity": 1,
+                    "shippingWarehouseReferenceKey": "barsbuettel",
+                    "tax": {{subItemTax1}},
+                    "taxAmount": {{subItemTaxAmount1}},
+                    "vendorReferenceKey": null,
+                    "vendorSize": null,
+                    "warehouseReferenceKey": "barsbuettel"
+                },
+                {
+                    "attributes": [
+                        {
+                            "isLocked": false,
+                            "name": "isSellableForFree",
+                            "type": "simple",
+                            "value": "true"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxVariantSorting",
+                            "type": "simple",
+                            "value": "6"
+                        },
+                        {
+                            "isLocked": true,
+                            "name": "rxLensIndex",
+                            "type": "simple",
+                            "value": "cd"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxAdditionalInfo",
+                            "type": "localizedString",
+                            "value": {
+                                "de_DE": "Kunststoff Asph\u00e4risch 1,67 Brechungsindex"
+                            }
+                        }
+                    ],
+                    "currencyCode": "CZK",
+                    "customData": {
+                        "aybaOttoReservationDetails": [],
+                        "hideSubItem": true,
+                        "shopId": 10007,
+                        "kls.ordertype": "za"
+                    },
+                    "id": 17006,
+                    "itemGroup": {
+                        "id": "28486286",
+                        "isMainItem": false,
+                        "isRequired": true
+                    },
+                    "localizedName": "Comfort Select",
+                    "merchantKey": "default",
+                    "merchantProductVariantId": 142943,
+                    "merchantProductVariantReferenceKey": "index_ad",
+                    "merchantReservationKey": null,
+                    "name": "Comfort Select",
+                    "orderItemId": {{subItemOrderId2}},
+                    "packagingGroupId": null,
+                    "price": {{subItemPrice2}},
+                    "priceWithoutTax": {{subItemPriceWithoutTax2}},
+                    "productVariantId": 142943,
+                    "quantity": 1,
+                    "shippingWarehouseReferenceKey": "barsbuettel",
+                    "tax": {{subItemTax2}},
+                    "taxAmount": {{subItemTaxAmount2}},
+                    "vendorReferenceKey": null,
+                    "vendorSize": null,
+                    "warehouseReferenceKey": "barsbuettel"
+                },
+                {
+                    "attributes": [
+                        {
+                            "isLocked": false,
+                            "name": "rxTintingType",
+                            "type": "simple",
+                            "value": "col"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxTintingCoating",
+                            "type": "simple",
+                            "value": "rshc"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxTintingColor",
+                            "type": "simple",
+                            "value": "g1"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxTintingHexColorCode",
+                            "type": "simple",
+                            "value": "#143723"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxTintingColorDescription",
+                            "type": "localizedString",
+                            "value": {
+                                "cs_CZ": "\u0161edozelen\u00e1",
+                                "de_CH": "Grau-Gr\u00fcn",
+                                "de_DE": "Grau-Gr\u00fcn",
+                                "fr_CH": "Gris-vert",
+                                "it_CH": "Grigio-verde",
+                                "pl_PL": "szaro-zielony"
+                            }
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxTintingAbsorption",
+                            "type": "simple",
+                            "value": "85"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "isSellableForFree",
+                            "type": "simple",
+                            "value": "true"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxVariantSorting",
+                            "type": "simple",
+                            "value": "56"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxAdditionalInfo",
+                            "type": "localizedString",
+                            "value": {
+                                "de_DE": "Color, Grau-Gr\u00fcn 85%, R\u00fcckentspiegelt, hard coated, clean coated"
+                            }
+                        }
+                    ],
+                    "currencyCode": "CZK",
+                    "customData": {
+                        "aybaOttoReservationDetails": [],
+                        "hideSubItem": true,
+                        "shopId": 10007,
+                        "kls.ordertype": "za"
+                    },
+                    "id": 17007,
+                    "itemGroup": {
+                        "id": "28486286",
+                        "isMainItem": false,
+                        "isRequired": true
+                    },
+                    "localizedName": "Barva \u010do\u010dek do slune\u010dn\u00edch br\u00fdl\u00ed",
+                    "merchantKey": "default",
+                    "merchantProductVariantId": 142999,
+                    "merchantProductVariantReferenceKey": "ad_tinting_col-g185-rshc",
+                    "merchantReservationKey": null,
+                    "name": "Sonnen\u00adbrillen\u00adt\u00f6nung",
+                    "orderItemId": {{subItemOrderId3}},
+                    "packagingGroupId": null,
+                    "price": {{subItemPrice3}},
+                    "priceWithoutTax": {{subItemPriceWithoutTax3}},
+                    "productVariantId": 142999,
+                    "quantity": 1,
+                    "shippingWarehouseReferenceKey": "barsbuettel",
+                    "tax": {{subItemTax3}},
+                    "taxAmount": {{subItemTaxAmount3}},
+                    "vendorReferenceKey": null,
+                    "vendorSize": null,
+                    "warehouseReferenceKey": "barsbuettel"
+                },
+                {
+                    "attributes": [
+                        {
+                            "isLocked": false,
+                            "name": "rxVariantSorting",
+                            "type": "simple",
+                            "value": "83"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "isSellableForFree",
+                            "type": "simple",
+                            "value": "true"
+                        },
+                        {
+                            "isLocked": false,
+                            "name": "rxAdditionalInfo",
+                            "type": "localizedString",
+                            "value": {
+                                "de_DE": ""
+                            }
+                        }
+                    ],
+                    "currencyCode": "CZK",
+                    "customData": {
+                        "aybaOttoReservationDetails": [],
+                        "hideSubItem": true,
+                        "shopId": 10007,
+                        "kls.ordertype": "za"
+                    },
+                    "id": 17008,
+                    "itemGroup": {
+                        "id": "28486286",
+                        "isMainItem": false,
+                        "isRequired": true
+                    },
+                    "localizedName": "P\u0159izp\u016fsoben\u00ed br\u00fdl\u00ed v pobo\u010dce Fielmann",
+                    "merchantKey": "default",
+                    "merchantProductVariantId": 143033,
+                    "merchantProductVariantReferenceKey": "service_fitting",
+                    "merchantReservationKey": null,
+                    "name": "Anpassung in einer Fielmann-Niederlassung",
+                    "orderItemId": {{subItemOrderId4}},
+                    "packagingGroupId": null,
+                    "price": {{subItemPrice4}},
+                    "priceWithoutTax": {{subItemPriceWithoutTax4}},
+                    "productVariantId": 143033,
+                    "quantity": 1,
+                    "shippingWarehouseReferenceKey": "barsbuettel",
+                    "tax": {{subItemTax4}},
+                    "taxAmount": {{subItemTaxAmount4}},
+                    "vendorReferenceKey": null,
+                    "vendorSize": null,
+                    "warehouseReferenceKey": "barsbuettel"
+                }
+            ]
+        }
+        // ,
+        // {
+        //     "currencyCode": "CZK",
+        //     "customData": {
+        //         "aybaOttoReservationDetails": [],
+        //         "prescriptionValues": {
+        //             "left": {
+        //                 "axis": 2,
+        //                 "cylinder": -2.5,
+        //                 "pd": 25.5,
+        //                 "sphere": -4.5
+        //             },
+        //             "right": {
+        //                 "axis": 1,
+        //                 "cylinder": -3.25,
+        //                 "pd": 25,
+        //                 "sphere": -5.5
+        //             }
+        //         },
+        //         "prescriptionValuesDisplay": {
+        //             "left": {
+        //                 "axis": "2",
+        //                 "cylinder": "-2,50",
+        //                 "pd": "25,5",
+        //                 "sphere": "-4,50"
+        //             },
+        //             "right": {
+        //                 "axis": "1",
+        //                 "cylinder": "-3,25",
+        //                 "pd": "25,0",
+        //                 "sphere": "-5,50"
+        //             }
+        //         },
+        //         "shopId": 10007
+        //     },
+        //     "id": 17009,
+        //     "itemGroup": {
+        //         "id": "28486286",
+        //         "isMainItem": false,
+        //         "isRequired": true
+        //     },
+        //     "localizedName": "Fielmann MC 592 CL",
+        //     "merchantKey": "default",
+        //     "merchantProductVariantId": 154691,
+        //     "merchantProductVariantReferenceKey": "24434",
+        //     "merchantReservationKey": null,
+        //     "name": "Fielmann MC 592 CL",
+        //     "orderItemId": {{orderItemId2}},
+        //     "packagingGroupId": null,
+        //     "price": {{orderItemPrice2}},
+        //     "priceWithoutTax": {{orderItemPriceWithoutTax2}},
+        //     "productVariantId": 154691,
+        //     "quantity": 1,
+        //     "shippingWarehouseReferenceKey": "barsbuettel",
+        //     "tax": {{orderItemTax2}},
+        //     "taxAmount": {{orderItemTaxAmount2}},
+        //     "vendorReferenceKey": null,
+        //     "vendorSize": null,
+        //     "warehouseReferenceKey": "barsbuettel",
+        //     "subItems": [
+        //         {
+        //             "attributes": [
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxLensType",
+        //                     "type": "simple",
+        //                     "value": "ei"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxVariantSorting",
+        //                     "type": "simple",
+        //                     "value": "1"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "isSellableForFree",
+        //                     "type": "simple",
+        //                     "value": "true"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxAdditionalInfo",
+        //                     "type": "localizedString",
+        //                     "value": {
+        //                         "de_DE": "Einst\u00e4rke"
+        //                     }
+        //                 }
+        //             ],
+        //             "currencyCode": "CZK",
+        //             "customData": {
+        //                 "aybaOttoReservationDetails": [],
+        //                 "hideSubItem": true,
+        //                 "shopId": 10007,
+        //                 "kls.ordertype":"za"
+        //             },
+        //             "id": 17005,
+        //             "itemGroup": {
+        //                 "id": "28486286",
+        //                 "isMainItem": false,
+        //                 "isRequired": true
+        //             },
+        //             "localizedName": "Nov\u00e9: Jednoohniskov\u00e9 br\u00fdle",
+        //             "merchantKey": "default",
+        //             "merchantProductVariantId": 142934,
+        //             "merchantProductVariantReferenceKey": "type_ei",
+        //             "merchantReservationKey": null,
+        //             "name": "Neu: Brille mit Einst\u00e4rkengl\u00e4sern",
+        //             "orderItemId": {{subItemOrderId5}},
+        //             "packagingGroupId": null,
+        //             "price": {{subItemPrice5}},
+        //             "priceWithoutTax": {{subItemPriceWithoutTax5}},
+        //             "productVariantId": 142934,
+        //             "quantity": 1,
+        //             "shippingWarehouseReferenceKey": "barsbuettel",
+        //             "tax": {{subItemTax5}},
+        //             "taxAmount": {{subItemTaxAmount5}},
+        //             "vendorReferenceKey": null,
+        //             "vendorSize": null,
+        //             "warehouseReferenceKey": "barsbuettel"
+        //         },
+        //         {
+        //             "attributes": [
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "isSellableForFree",
+        //                     "type": "simple",
+        //                     "value": "true"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxVariantSorting",
+        //                     "type": "simple",
+        //                     "value": "6"
+        //                 },
+        //                 {
+        //                     "isLocked": true,
+        //                     "name": "rxLensIndex",
+        //                     "type": "simple",
+        //                     "value": "cd"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxAdditionalInfo",
+        //                     "type": "localizedString",
+        //                     "value": {
+        //                         "de_DE": "Kunststoff Asph\u00e4risch 1,67 Brechungsindex"
+        //                     }
+        //                 }
+        //             ],
+        //             "currencyCode": "CZK",
+        //             "customData": {
+        //                 "aybaOttoReservationDetails": [],
+        //                 "hideSubItem": true,
+        //                 "shopId": 10007,
+        //                 "kls.ordertype":"za"
+        //             },
+        //             "id": 17006,
+        //             "itemGroup": {
+        //                 "id": "28486286",
+        //                 "isMainItem": false,
+        //                 "isRequired": true
+        //             },
+        //             "localizedName": "Comfort Select",
+        //             "merchantKey": "default",
+        //             "merchantProductVariantId": 142943,
+        //             "merchantProductVariantReferenceKey": "index_ad",
+        //             "merchantReservationKey": null,
+        //             "name": "Comfort Select",
+        //             "orderItemId": {{subItemOrderId6}},
+        //             "packagingGroupId": null,
+        //             "price": {{subItemPrice6}},
+        //             "priceWithoutTax": {{subItemPriceWithoutTax6}},
+        //             "productVariantId": 142943,
+        //             "quantity": 1,
+        //             "shippingWarehouseReferenceKey": "barsbuettel",
+        //             "tax": {{subItemTax6}},
+        //             "taxAmount": {{subItemTaxAmount6}},
+        //             "vendorReferenceKey": null,
+        //             "vendorSize": null,
+        //             "warehouseReferenceKey": "barsbuettel"
+        //         },
+        //         {
+        //             "attributes": [
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxTintingType",
+        //                     "type": "simple",
+        //                     "value": "col"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxTintingCoating",
+        //                     "type": "simple",
+        //                     "value": "rshc"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxTintingColor",
+        //                     "type": "simple",
+        //                     "value": "g1"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxTintingHexColorCode",
+        //                     "type": "simple",
+        //                     "value": "#143723"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxTintingColorDescription",
+        //                     "type": "localizedString",
+        //                     "value": {
+        //                         "cs_CZ": "\u0161edozelen\u00e1",
+        //                         "de_CH": "Grau-Gr\u00fcn",
+        //                         "de_DE": "Grau-Gr\u00fcn",
+        //                         "fr_CH": "Gris-vert",
+        //                         "it_CH": "Grigio-verde",
+        //                         "pl_PL": "szaro-zielony"
+        //                     }
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxTintingAbsorption",
+        //                     "type": "simple",
+        //                     "value": "85"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "isSellableForFree",
+        //                     "type": "simple",
+        //                     "value": "true"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxVariantSorting",
+        //                     "type": "simple",
+        //                     "value": "56"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxAdditionalInfo",
+        //                     "type": "localizedString",
+        //                     "value": {
+        //                         "de_DE": "Color, Grau-Gr\u00fcn 85%, R\u00fcckentspiegelt, hard coated, clean coated"
+        //                     }
+        //                 }
+        //             ],
+        //             "currencyCode": "CZK",
+        //             "customData": {
+        //                 "aybaOttoReservationDetails": [],
+        //                 "hideSubItem": true,
+        //                 "shopId": 10007,
+        //                 "kls.ordertype":"za"
+        //             },
+        //             "id": 17007,
+        //             "itemGroup": {
+        //                 "id": "28486286",
+        //                 "isMainItem": false,
+        //                 "isRequired": true
+        //             },
+        //             "localizedName": "Barva \u010do\u010dek do slune\u010dn\u00edch br\u00fdl\u00ed",
+        //             "merchantKey": "default",
+        //             "merchantProductVariantId": 142999,
+        //             "merchantProductVariantReferenceKey": "ad_tinting_col-g185-rshc",
+        //             "merchantReservationKey": null,
+        //             "name": "Sonnen\u00adbrillen\u00adt\u00f6nung",
+        //             "orderItemId": {{subItemOrderId7}},
+        //             "packagingGroupId": null,
+        //             "price": {{subItemPrice7}},
+        //             "priceWithoutTax": {{subItemPriceWithoutTax7}},
+        //             "productVariantId": 142999,
+        //             "quantity": 1,
+        //             "shippingWarehouseReferenceKey": "barsbuettel",
+        //             "tax": {{subItemTax7}},
+        //             "taxAmount": {{subItemTaxAmount7}},
+        //             "vendorReferenceKey": null,
+        //             "vendorSize": null,
+        //             "warehouseReferenceKey": "barsbuettel"
+        //         },
+        //         {
+        //             "attributes": [
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxVariantSorting",
+        //                     "type": "simple",
+        //                     "value": "83"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "isSellableForFree",
+        //                     "type": "simple",
+        //                     "value": "true"
+        //                 },
+        //                 {
+        //                     "isLocked": false,
+        //                     "name": "rxAdditionalInfo",
+        //                     "type": "localizedString",
+        //                     "value": {
+        //                         "de_DE": ""
+        //                     }
+        //                 }
+        //             ],
+        //             "currencyCode": "CZK",
+        //             "customData": {
+        //                 "aybaOttoReservationDetails": [],
+        //                 "hideSubItem": true,
+        //                 "shopId": 10007,
+        //                 "kls.ordertype":"za"
+        //             },
+        //             "id": 17008,
+        //             "itemGroup": {
+        //                 "id": "28486286",
+        //                 "isMainItem": false,
+        //                 "isRequired": true
+        //             },
+        //             "localizedName": "P\u0159izp\u016fsoben\u00ed br\u00fdl\u00ed v pobo\u010dce Fielmann",
+        //             "merchantKey": "default",
+        //             "merchantProductVariantId": 143033,
+        //             "merchantProductVariantReferenceKey": "service_fitting",
+        //             "merchantReservationKey": null,
+        //             "name": "Anpassung in einer Fielmann-Niederlassung",
+        //             "orderItemId": {{subItemOrderId8}},
+        //             "packagingGroupId": null,
+        //             "price": {{subItemPrice8}},
+        //             "priceWithoutTax": {{subItemPriceWithoutTax8}},
+        //             "productVariantId": 143033,
+        //             "quantity": 1,
+        //             "shippingWarehouseReferenceKey": "barsbuettel",
+        //             "tax": {{subItemTax8}},
+        //             "taxAmount": {{subItemTaxAmount8}},
+        //             "vendorReferenceKey": null,
+        //             "vendorSize": null,
+        //             "warehouseReferenceKey": "barsbuettel"
+        //         }
+        //     ]
+        // },
+        // {
+        //     "currencyCode": "CZK",
+        //     "customData": {
+        //         "aybaOttoReservationDetails": [],
+        //         "prescriptionValues": {
+        //             "left": {
+        //                 "axis": 2,
+        //                 "cylinder": -2.5,
+        //                 "pd": 25.5,
+        //                 "sphere": -4.5
+        //             },
+        //             "right": {
+        //                 "axis": 1,
+        //                 "cylinder": -3.25,
+        //                 "pd": 25,
+        //                 "sphere": -5.5
+        //             }
+        //         },
+        //         "prescriptionValuesDisplay": {
+        //             "left": {
+        //                 "axis": "2",
+        //                 "cylinder": "-2,50",
+        //                 "pd": "25,5",
+        //                 "sphere": "-4,50"
+        //             },
+        //             "right": {
+        //                 "axis": "1",
+        //                 "cylinder": "-3,25",
+        //                 "pd": "25,0",
+        //                 "sphere": "-5,50"
+        //             }
+        //         },
+        //         "shopId": 10007
+        //     },
+        //     "id": 17009,
+        //     "itemGroup": {
+        //         "id": "28486286",
+        //         "isMainItem": false,
+        //         "isRequired": true
+        //     },
+        //     "localizedName": "Fielmann MC 592 CL",
+        //     "merchantKey": "default",
+        //     "merchantProductVariantId": 154691,
+        //     "merchantProductVariantReferenceKey": "10000002",
+        //     "merchantReservationKey": null,
+        //     "name": "Fielmann MC 592 CL",
+        //     "orderItemId": {{orderItemId3}},
+        //     "packagingGroupId": null,
+        //     "price": {{orderItemPrice3}},
+        //     "priceWithoutTax": {{orderItemPriceWithoutTax3}},
+        //     "productVariantId": 154691,
+        //     "quantity": 1,
+        //     "shippingWarehouseReferenceKey": "barsbuettel",
+        //     "tax": {{orderItemTax3}},
+        //     "taxAmount": {{orderItemTaxAmount3}},
+        //     "vendorReferenceKey": null,
+        //     "vendorSize": null,
+        //     "warehouseReferenceKey": "barsbuettel"
+        //     // "subItems": [
+        //     //     {
+        //     //         "attributes": [
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxLensType",
+        //     //                 "type": "simple",
+        //     //                 "value": "ei"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxVariantSorting",
+        //     //                 "type": "simple",
+        //     //                 "value": "1"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "isSellableForFree",
+        //     //                 "type": "simple",
+        //     //                 "value": "true"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxAdditionalInfo",
+        //     //                 "type": "localizedString",
+        //     //                 "value": {
+        //     //                     "de_DE": "Einst\u00e4rke"
+        //     //                 }
+        //     //             }
+        //     //         ],
+        //     //         "currencyCode": "CZK",
+        //     //         "customData": {
+        //     //             "aybaOttoReservationDetails": [],
+        //     //             "hideSubItem": true,
+        //     //             "shopId": 10007,
+        //     //             "kls.ordertype":"za"
+        //     //         },
+        //     //         "id": 17005,
+        //     //         "itemGroup": {
+        //     //             "id": "28486286",
+        //     //             "isMainItem": false,
+        //     //             "isRequired": true
+        //     //         },
+        //     //         "localizedName": "Nov\u00e9: Jednoohniskov\u00e9 br\u00fdle",
+        //     //         "merchantKey": "default",
+        //     //         "merchantProductVariantId": 142934,
+        //     //         "merchantProductVariantReferenceKey": "type_ei",
+        //     //         "merchantReservationKey": null,
+        //     //         "name": "Neu: Brille mit Einst\u00e4rkengl\u00e4sern",
+        //     //         "orderItemId": {{subItemOrderId9}},
+        //     //         "packagingGroupId": null,
+        //     //         "price": {{subItemPrice9}},
+        //     //         "priceWithoutTax": {{subItemPriceWithoutTax9}},
+        //     //         "productVariantId": 142934,
+        //     //         "quantity": 1,
+        //     //         "shippingWarehouseReferenceKey": "barsbuettel",
+        //     //         "tax": {{subItemTax9}},
+        //     //         "taxAmount": {{subItemTaxAmount9}},
+        //     //         "vendorReferenceKey": null,
+        //     //         "vendorSize": null,
+        //     //         "warehouseReferenceKey": "barsbuettel"
+        //     //     },
+        //     //     {
+        //     //         "attributes": [
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "isSellableForFree",
+        //     //                 "type": "simple",
+        //     //                 "value": "true"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxVariantSorting",
+        //     //                 "type": "simple",
+        //     //                 "value": "6"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": true,
+        //     //                 "name": "rxLensIndex",
+        //     //                 "type": "simple",
+        //     //                 "value": "cd"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxAdditionalInfo",
+        //     //                 "type": "localizedString",
+        //     //                 "value": {
+        //     //                     "de_DE": "Kunststoff Asph\u00e4risch 1,67 Brechungsindex"
+        //     //                 }
+        //     //             }
+        //     //         ],
+        //     //         "currencyCode": "CZK",
+        //     //         "customData": {
+        //     //             "aybaOttoReservationDetails": [],
+        //     //             "hideSubItem": true,
+        //     //             "shopId": 10007,
+        //     //             "kls.ordertype":"za"
+        //     //         },
+        //     //         "id": 17006,
+        //     //         "itemGroup": {
+        //     //             "id": "28486286",
+        //     //             "isMainItem": false,
+        //     //             "isRequired": true
+        //     //         },
+        //     //         "localizedName": "Comfort Select",
+        //     //         "merchantKey": "default",
+        //     //         "merchantProductVariantId": 142943,
+        //     //         "merchantProductVariantReferenceKey": "index_ad",
+        //     //         "merchantReservationKey": null,
+        //     //         "name": "Comfort Select",
+        //     //         "orderItemId": {{subItemOrderId10}},
+        //     //         "packagingGroupId": null,
+        //     //         "price": {{subItemPrice10}},
+        //     //         "priceWithoutTax": {{subItemPriceWithoutTax10}},
+        //     //         "productVariantId": 142943,
+        //     //         "quantity": 1,
+        //     //         "shippingWarehouseReferenceKey": "barsbuettel",
+        //     //         "tax": {{subItemTax10}},
+        //     //         "taxAmount": {{subItemTaxAmount10}},
+        //     //         "vendorReferenceKey": null,
+        //     //         "vendorSize": null,
+        //     //         "warehouseReferenceKey": "barsbuettel"
+        //     //     },
+        //     //     {
+        //     //         "attributes": [
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxTintingType",
+        //     //                 "type": "simple",
+        //     //                 "value": "col"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxTintingCoating",
+        //     //                 "type": "simple",
+        //     //                 "value": "rshc"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxTintingColor",
+        //     //                 "type": "simple",
+        //     //                 "value": "g1"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxTintingHexColorCode",
+        //     //                 "type": "simple",
+        //     //                 "value": "#143723"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxTintingColorDescription",
+        //     //                 "type": "localizedString",
+        //     //                 "value": {
+        //     //                     "cs_CZ": "\u0161edozelen\u00e1",
+        //     //                     "de_CH": "Grau-Gr\u00fcn",
+        //     //                     "de_DE": "Grau-Gr\u00fcn",
+        //     //                     "fr_CH": "Gris-vert",
+        //     //                     "it_CH": "Grigio-verde",
+        //     //                     "pl_PL": "szaro-zielony"
+        //     //                 }
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxTintingAbsorption",
+        //     //                 "type": "simple",
+        //     //                 "value": "85"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "isSellableForFree",
+        //     //                 "type": "simple",
+        //     //                 "value": "true"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxVariantSorting",
+        //     //                 "type": "simple",
+        //     //                 "value": "56"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxAdditionalInfo",
+        //     //                 "type": "localizedString",
+        //     //                 "value": {
+        //     //                     "de_DE": "Color, Grau-Gr\u00fcn 85%, R\u00fcckentspiegelt, hard coated, clean coated"
+        //     //                 }
+        //     //             }
+        //     //         ],
+        //     //         "currencyCode": "CZK",
+        //     //         "customData": {
+        //     //             "aybaOttoReservationDetails": [],
+        //     //             "hideSubItem": true,
+        //     //             "shopId": 10007,
+        //     //             "kls.ordertype":"za"
+        //     //         },
+        //     //         "id": 17007,
+        //     //         "itemGroup": {
+        //     //             "id": "28486286",
+        //     //             "isMainItem": false,
+        //     //             "isRequired": true
+        //     //         },
+        //     //         "localizedName": "Barva \u010do\u010dek do slune\u010dn\u00edch br\u00fdl\u00ed",
+        //     //         "merchantKey": "default",
+        //     //         "merchantProductVariantId": 142999,
+        //     //         "merchantProductVariantReferenceKey": "ad_tinting_col-g185-rshc",
+        //     //         "merchantReservationKey": null,
+        //     //         "name": "Sonnen\u00adbrillen\u00adt\u00f6nung",
+        //     //         "orderItemId": {{subItemOrderId11}},
+        //     //         "packagingGroupId": null,
+        //     //         "price": {{subItemPrice11}},
+        //     //         "priceWithoutTax": {{subItemPriceWithoutTax11}},
+        //     //         "productVariantId": 142999,
+        //     //         "quantity": 1,
+        //     //         "shippingWarehouseReferenceKey": "barsbuettel",
+        //     //         "tax": {{subItemTax11}},
+        //     //         "taxAmount": {{subItemTaxAmount11}},
+        //     //         "vendorReferenceKey": null,
+        //     //         "vendorSize": null,
+        //     //         "warehouseReferenceKey": "barsbuettel"
+        //     //     },
+        //     //     {
+        //     //         "attributes": [
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxVariantSorting",
+        //     //                 "type": "simple",
+        //     //                 "value": "83"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "isSellableForFree",
+        //     //                 "type": "simple",
+        //     //                 "value": "true"
+        //     //             },
+        //     //             {
+        //     //                 "isLocked": false,
+        //     //                 "name": "rxAdditionalInfo",
+        //     //                 "type": "localizedString",
+        //     //                 "value": {
+        //     //                     "de_DE": ""
+        //     //                 }
+        //     //             }
+        //     //         ],
+        //     //         "currencyCode": "CZK",
+        //     //         "customData": {
+        //     //             "aybaOttoReservationDetails": [],
+        //     //             "hideSubItem": true,
+        //     //             "shopId": 10007,
+        //     //             "kls.ordertype":"za"
+        //     //             },
+        //     //         "id": 17008,
+        //     //         "itemGroup": {
+        //     //             "id": "28486286",
+        //     //             "isMainItem": false,
+        //     //             "isRequired": true
+        //     //         },
+        //     //         "localizedName": "P\u0159izp\u016fsoben\u00ed br\u00fdl\u00ed v pobo\u010dce Fielmann",
+        //     //         "merchantKey": "default",
+        //     //         "merchantProductVariantId": 143033,
+        //     //         "merchantProductVariantReferenceKey": "service_fitting",
+        //     //         "merchantReservationKey": null,
+        //     //         "name": "Anpassung in einer Fielmann-Niederlassung",
+        //     //         "orderItemId": {{subItemOrderId12}},
+        //     //         "packagingGroupId": null,
+        //     //         "price": {{subItemPrice12}},
+        //     //         "priceWithoutTax": {{subItemPriceWithoutTax12}},
+        //     //         "productVariantId": 143033,
+        //     //         "quantity": 1,
+        //     //         "shippingWarehouseReferenceKey": "barsbuettel",
+        //     //         "tax": {{subItemTax12}},
+        //     //         "taxAmount": {{subItemTaxAmount12}},
+        //     //         "vendorReferenceKey": null,
+        //     //         "vendorSize": null,
+        //     //         "warehouseReferenceKey": "barsbuettel"
+        //     //     }
+        //     // ]
+        // }
+    ],
+    "languageCode": "cs_CZ",
+    "orderId": {{orderReferenceKey}},
+    "orderReferenceKey": "facz-10005-{{orderReferenceKey}}",
+    "paymentMethod": "paypal_instant",
+    "shopId": 10007,
+    "shopKey": "fa",
+    "vendorReferenceKey": null
+}
+
+---
+
+
+```
+
+docker compose run -p 127.0.0.1:8072:8072 odoo --db-filter=17_EE_fielmann1_URD_07_Nov_20255 -d 17_EE_fielmann1_URD_07_Nov_20255 --limit-time-real=999999 --limit-time-cpu=99999999 
+
+
+```
+
+
+Zeiss Backend:zeiss
+Allow order without prescription (true)
+
+
+Scayle Attribute to Zeiss Attribute:
+
+{
+  "rxLensIndex": "material",
+  "rxLensType": "type",
+  "rxTintingType": "type",
+  "rxTintingColor": "colour",
+  "rxTintingAbsorption": "absorption",
+  "rxTintingCoating": "coating"
+}
+
+
+RX Attribute Values?
+
+{{"rxLensType": {"from_vals": [null,false, ""], "to_vals": "ei"}, "rxTintingAbsorption": {"from_vals": [null,false, ""], "to_vals": "85"}, "rxLensIndex": {"from_vals": [null,false, ""], "to_vals": "cr"}, "rxTintingCoating": {"from_vals": ["nocoat", "NOCOAT"], "to_vals": ""}}
+
+
+
+RX Prescription Lenses Value?
+
+{
+  "EI": {
+    "addition": {"from_vals": [null, false, "", "none", "NONE"], "to_vals": 0},
+    "hpd": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 25},
+    "pd": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 35},
+    "cylinder": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 0},
+    "sphere": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 0},
+    "axis": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 0}
+  },
+  "None": {
+    "addition": {"from_vals": [null, false, "", "none", "NONE"], "to_vals": 0},
+    "hpd": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 24},
+    "pd": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 33},
+    "cylinder": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": -1},
+    "sphere": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 1},
+    "axis": {"from_vals": [null, false, "", "none", "NONE", 0, "0"], "to_vals": 1}
+  }
+}
+
+
+
+---
+
+http://localhost:8072/api/scayle/v1/order-create/6572fd3b-717b-4986-b489-f1117f848b42
+
+6572fd3b-717b-4986-b489-f1117f848b42 replced with access taken
+
+---
+
+
+Here is your content rewritten in a clear and proper format:
+
+---
+
+## Process: Sale Order Test Cases (SCAYLE Order)
+
+### Validation Checks
+
+* If the field **“RX Product Category”** is not selected and the boolean field **“MRP Flow”** is set to **True**, a mapping error will occur for the RX Product Category while importing the sale order.
+
+* When the sale order is successfully imported, a **Manufacturing Order (MO)** will be automatically created.
+
+* A new **Finished Product** will be created based on the **Frame products** included in the payload.
+
+* The number of Finished Products created depends on the number of Frame products in the payload.
+
+  * **Example:**
+    If there are **2 Frame products** in the payload, then:
+
+    * 2 Finished Products will be created.
+    * 2 Manufacturing Orders will be generated (one for each Finished Product).
+
+---
+
+## Route Configuration in Sale Order Line (SOL)
+
+* For **Frame products**, the route will be set to **“Barsbuettel.”**
+* For **Non-frame products**, the route will be set to **“Plattling.”**
+
+⚠ **Important:**
+If the route is **“Plattling,”** a Manufacturing Order will **not** be created.
+
+---
+
+## Steps to Process the Order
+
+### Step 1:
+
+Configure the SCAYLE order.
+
+### Step 2:
+
+Send the payload.
+
+### Step 3:
+
+1. Go to **Jobs**.
+2. Click on the **Related** button.
+3. The Sale Order will be created along with:
+
+   * Manufacturing Order = Frame
+   * Delivery Order
+   * Zeiss Order = galss
+
+---
+
+### Step 4:
+
+1. Open the Manufacturing Order.
+2. Click **Unlock** (locked).
+3. Click **Produce All**.
+
+⚠ **Warning Message:**
+
+> *Invalid Operation: Frame Product and Glass Product both must be present in the order (e.g., BURD/MO/00017).*
+
+This warning appears if either the Frame Product or Glass Product is missing.
+
+---
+
+### Step 5:
+
+If the warning occurs due to insufficient quantity:
+
+* Increase the required quantity in **Transfer**.
+* Validate the transfer.
+* The transfer will move to **Done** state.
+
+---
+
+### Step 6:
+
+* Click **Produce All** again.
+* The Manufacturing Order will move to **Done** state.
+* The Delivery Order must also be in **Done** state.
+
+---
+
+### Zeiss Order:
+
+In the Zeiss Order, you can manually return the order if required.
+
+---
+
+If you would like, I can also format this as a professional SOP document for documentation purposes.
+
+
+==========================================================================================================

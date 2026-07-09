@@ -1,0 +1,168 @@
+If you want to **check the final flow of OMF in localhost (Odoo)**, follow this **proper step-by-step way** 👇
+
+---
+
+## 1️⃣ Run Odoo in Localhost
+
+First make sure your **Odoo server is running**.
+
+Example:
+
+```bash
+./odoo-bin -c odoo.conf
+```
+
+Then open in browser:
+
+```
+http://localhost:8069
+```
+
+Login to your **database**.
+
+---
+
+## 2️⃣ Go to Sales Module
+
+Since your code is extending **sale.order**, you need to check the flow in **Sales**.
+
+Steps:
+
+1. Open **Sales**
+2. Click **Orders**
+3. Open any **Sale Order**
+
+--- 
+
+## 3️⃣ Open Connector / OMF Tab
+
+Your XML code adds OMF info inside the **connector page**:
+
+```xml
+<xpath expr="//page[@name='connector']" position="inside">
+```
+
+So inside **Sale Order Form**:
+
+➡️ Go to **Connector Tab**
+
+There you will see:
+
+* **OMF Bindings**
+* **Backend ID**
+* **External ID**
+* **API Payload History**
+
+These come from:
+
+```xml
+field name="omf_bind_ids"
+```
+
+---
+
+## 4️⃣ Check OMF Bindings
+
+Inside **OMF Bindings table** you can see:
+
+| Field       | Meaning               |
+| ----------- | --------------------- |
+| backend_id  | Which backend system  |
+| external_id | External OMF order ID |
+
+If records exist → OMF sync worked.
+
+---
+
+## 5️⃣ Check API Payload History
+
+Your code added this section:
+
+```xml
+<field name="api_payload_history_ids"/>
+```
+
+This shows:
+
+* API request payload
+* API response
+* Sync history
+
+This helps debug **OMF integration**.
+
+---
+
+## 6️⃣ Enable Developer Mode (Important) 🧑‍💻
+
+To debug properly:
+
+Go to
+
+```
+Settings → Activate Developer Mode
+```
+
+Then you can check:
+
+* Technical fields
+* External IDs
+* Logs
+
+---
+
+## 7️⃣ Check Logs in Terminal
+
+Run Odoo with logs and check if OMF API is called.
+
+Example:
+
+```bash
+tail -f odoo.log
+```
+
+Look for:
+
+```
+OMF
+connector
+api_payload
+```
+
+---
+
+## 8️⃣ Check Flow in Code
+
+The final OMF flow usually is:
+
+```
+Sale Order
+   ↓
+Connector
+   ↓
+OMF Binding Created
+   ↓
+API Payload Sent
+   ↓
+External ID Saved
+   ↓
+Payload History Stored
+```
+
+---
+
+✅ **Best way to test in localhost**
+
+1. Create Sale Order
+2. Confirm Order
+3. Trigger OMF sync
+4. Check **Connector Tab → OMF Bindings**
+
+---
+
+💡 If you want, I can also explain:
+
+* **Complete OMF flow in Odoo Connector**
+* **How Sale Order syncs to OMF API**
+* **How to debug OMF integration step-by-step**
+
+Just tell me 👍

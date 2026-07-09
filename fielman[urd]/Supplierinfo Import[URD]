@@ -1,0 +1,42 @@
+Supplierinfo Import[URD]
+
+that is use for create vender for 
+
+1. connector_base_supplierinfo update
+
+2. Supplierinfo -> backend
+
+  - base Supplier cofigration
+
+  Folder Configuration
+        Supplier Data Path: /opt/odoo/auto/03052022
+
+  - advance cofigration
+
+  Other Info
+        - Company?: Fielmann
+        - Generate Random Price: false
+
+  - /home/bizzappdev/work space/fielmann-addons/odoo/auto/03052022
+
+change:
+
+"varKey": "0001531890",
+
+"material": "00000000001531890",
+only 1531890 this part
+
+"varKeyLong": "1531890",
+
+Products -> product 1531890 open
+
+purchase into automatically create vender
+
+Supplierinfo
+
+imports
+
+import Supplierinfo button click
+Submitted By:
+  Name: Urvi Dehuniya
+  E.No:2302030400020

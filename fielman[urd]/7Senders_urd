@@ -1,0 +1,42 @@
+7Senders
+
+The 7Senders backend is created for the connector_7Senders.
+
+aeno use: Warehouse
+          Delivery Carriers
+ma thay chhe 
+
+7Senders Backend:
+
+Name: 7Senders
+7Senders Credentials
+Version: V2
+Test Location: https://single-api-uat.core.aws.sevensenders.com
+Test Access Key: hello
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+
+import warehouse button par click:
+ae work nai kare kem ke aena acess rights aapjode nai aetle so 
+
+
+connector_7senders -> components -> backend_adapter.py
+
+search and search_read methode ma 
+remove:
+result = self._call(
+    resource_path, arguments=filters, http_method=http_method, **kwargs
+)
+add:
+result = [{"name": "Default","country": {"iso2": "de","name": "Germany"}}]
+
+
+aetle warehouse bane
+
+check:
+
+   7Senders  -> 7Senders Stock Warehouse
+
+   automatice warehouse crated
+-------------------------------------------------------------------------------------
+
+

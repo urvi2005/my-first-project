@@ -1,0 +1,181 @@
+purchase_order_line_limit
+
+Got it 👍 — I’ll explain this module in **very simple terms** so you fully understand what it does.
+
+---
+
+# 🧠 What this module does (Simple idea)
+
+👉 This module **controls big Purchase Orders (POs)**
+
+If a PO has **too many lines (products)** → it will **split into multiple smaller POs automatically or manually**
+
+---
+
+# 🎯 Why this is needed
+
+Imagine:
+
+* You create 1 Purchase Order with **1200 products**
+* System limit = **500 lines per PO**
+
+👉 Problem:
+
+* Very large PO = slow, hard to manage, errors possible
+
+👉 Solution:
+
+* System splits into:
+
+  * PO1 → 500 lines
+  * PO2 → 500 lines
+  * PO3 → 200 lines
+
+---
+
+# ⚙️ Features explained simply
+
+---
+
+## 1️⃣ Configurable Limit
+
+* You can set **max lines per PO**
+* Default = **500 lines**
+
+📍 Path:
+
+```
+Settings → Purchase → Purchase Order Line Limit
+```
+
+👉 You can change to:
+
+* 100
+* 300
+* 1000
+  (whatever business needs)
+
+---
+
+## 2️⃣ Auto Detection (Smart check)
+
+Field:
+
+```
+is_po_splitable
+```
+
+👉 System checks:
+
+* If PO lines > limit → ✅ TRUE (needs split)
+* If PO lines ≤ limit → ❌ FALSE
+
+---
+
+### Example
+
+* Limit = 500
+* PO lines = 1200
+
+👉 System shows warning:
+
+> “This PO has 1200 lines → will create 3 POs”
+
+---
+
+## 3️⃣ Split Button (Main feature)
+
+Button:
+
+```
+Split Purchase Order
+```
+
+👉 When visible?
+
+* Only in **Draft state**
+* Only when PO exceeds limit
+
+---
+
+### What happens when you click it?
+
+Example:
+
+* 1200 lines
+* Limit = 500
+
+👉 Result:
+
+| PO          | Lines |
+| ----------- | ----- |
+| Original PO | 500   |
+| New PO 1    | 500   |
+| New PO 2    | 200   |
+
+---
+
+## 4️⃣ Smart Buttons (Easy navigation)
+
+After split:
+
+### On Original PO:
+
+* Shows **Split PO Count**
+* You can open all split POs
+
+### On Split PO:
+
+* Shows **Original PO**
+* You can go back
+
+---
+
+## 5️⃣ Linking System (Important)
+
+This keeps everything connected:
+
+### On Split PO:
+
+```
+original_po_id → parent PO
+```
+
+### On Original PO:
+
+```
+split_po_ids → all child POs
+split_po_count → total splits
+```
+
+👉 So system always knows:
+
+* Which PO came from where
+* How many splits happened
+
+---
+
+# 🔁 Full Flow (Easy understanding)
+
+1. Create PO
+2. Add many products
+3. System checks limit
+4. If exceeded → shows warning
+5. Click **Split Purchase Order**
+6. System creates multiple smaller POs
+7. All POs are linked together
+
+---
+
+# 💡 Final Simple Summary
+
+👉 This module:
+
+* Prevents very large purchase orders
+* Automatically detects large POs
+* Allows splitting into smaller POs
+* Keeps all split POs connected
+
+---
+
+If you want, I can also **show you how to write the split logic in Python (Odoo code)** or explain how it is implemented internally.

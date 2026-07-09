@@ -1,0 +1,29 @@
+Steps it follows:
+
+Read data from OMF
+
+Check token and find backend
+
+Validate order:
+
+Shipping address exists
+
+Email and phone are present
+
+Order items exist and are correct
+
+Products exist in Odoo
+
+No duplicate items
+
+If anything is wrong → send error message to OMF and refuse the order
+
+If everything is okay → schedule job to import the order in Odoo
+
+Send response back to OMF:
+
+202 → order received
+
+400 → validation error
+
+401 → token missing or wrong

@@ -1,0 +1,312 @@
+Connector Zeiss
+
+zeiss ma 1, 2, 3, 4A, 4B, 4C, 6, and 7 interface hoy chhe
+
+1)zeiss interface 1: zeiss order export karva mate thay chhe
+
+- aena access right batha jode nathi jethi aapde local ma change kariye chi ae 
+
+search: _name = "zeiss.exporter" 
+
+remove: res = self._create(record)
+
+add : res=record
+
+save
+
+click on Export (zeiss order)
+
+popup: ok
+
+state is automatically move on send
+
+2)zeiss interface 2: error state ma batav va mate use thay chhe
+
+zeiss backend set Token = 1
+
+go to postman set Authorization : 1
+
+postman url: http://localhost:8072/api/zeiss/v1/order
+
+
+Interface 2 paylaod
+---
+
+{
+    "data": [
+        {
+            "$schema": "schemas/zeiss-odoo-response.json",
+            "customerOrderId": "Z00003",
+            "orderError": "no diameter found!"
+        },
+        {
+            "$schema": "schemas/zeiss-odoo-response.json",
+            "customerOrderId": "Z00003",
+            "orderError": "no diameter found!"
+        }
+    ]
+
+}
+
+---
+
+
+3)zeiss interface 3: Conform by zeiss state am java mate use thay chhe 
+
+zeiss backend set Token = 1
+
+go to postman set Authorization : 1
+
+postman url: http://localhost:8072/api/zeiss/v1/order
+
+Interface 3 paylaod  
+
+---
+
+{
+    "data": [
+        {
+            "requestToken": "1",
+            "customerOrderId": "Z00004",
+            "orderId": "Z00004"
+        },
+        {
+            "requestToken": "1",
+            "customerOrderId": "Z00004",
+            "orderId": "Z00004"
+        }
+    ]
+}
+
+---
+
+4)zeiss interface 4: Done state am java mate use thay chhe
+
+zeiss backend set Token = 1
+
+go to postman set Authorization : 1
+
+i) zeiss interface 4A: stock mate use thay chhe
+
+postman url: http://localhost:8072/api/zeiss/v1/order
+
+---
+
+{
+    "data": [
+        {
+            "customerOrderId": "HEK-Z-1-00753",
+            "orderId": "HEK-Z-1-00753",
+            "orderType": "stock",
+            "lenses": {
+                "right": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "0101297604",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                },
+                "left": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "0101297604",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                }
+            }
+        },
+        {
+            "customerOrderId": "HEK-Z-1-00059",
+            "orderId": "HEK-Z-1-00059",
+            "orderType": "stock",
+            "lenses": {
+                "right": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "0101297604",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                },
+                "left": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "0101297638",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                }
+            }
+        }
+    ]
+}
+
+---
+
+ii) zeiss interface 4B: cross-dock  mate use thay chhe
+
+postman url: http://localhost:8072/api/zeiss/v1/order
+
+---
+
+{
+    "data": [
+        {
+            "customerOrderId": "Z00011",
+            "orderId": "Z00011",
+            "orderType": "cross-dock",
+            "lenses": {
+                "right": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                },
+                "left": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                }
+            }
+        },
+        {
+            "customerOrderId": "Z00011",
+            "orderId": "Z00011",
+            "orderType": "stock",
+            "lenses": {
+                "right": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                },
+                "left": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                }
+            }
+        }
+    ]
+}
+
+---
+
+iii)zeiss interface 4C: RX  mate use thay chhe
+
+postman url: http://localhost:8072/api/zeiss/v1/order
+
+"message": "The Product is not available with the combination GLA-CODE,1,CR,EI,FBL,GR,85,SHC",
+
+aave to 
+
+
+sales > order lines > click on product
+
+open product form view
+
+go to lens product data 
+
+set value: GLA-CODE,1,CR,EI,FBL,GR,85,SHC
+
+save 
+
+solved that error 
+
+---
+
+{
+    "data": [
+        {
+            "customerOrderId": "Z00017",
+            "orderId": "Z00017",
+            "orderType": "rx",
+            "lenses": {
+                "right": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                },
+                "left": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                }
+            }
+        },
+        {
+            "customerOrderId": "Z00017",
+            "orderId": "Z00017",
+            "orderType": "rx",
+            "lenses": {
+                "right": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                },5. queue_job.py
+
+6. stock_rule.py
+                "left": {
+                    "product": {
+                        "productBaseId": "GLA-CODE",
+                        "productId": "",
+                        "productName": "synchrony Einstärken Lager 1.5 SPH HMC Blue",
+                        "diameter": 65
+                    }
+                }
+            }
+        }
+    ]
+}
+
+---
+
+6) zeiss interface 6: cross-dock  mate use thay chhe
+
+postman url: http://localhost:8072/api/zeiss/v1/stock_picking_in/
+
+---
+
+{
+    "$schema": "schemas/zeiss-odoo-shipment-avis.json",
+    "shippingId": "Z00008",
+    "trackingNrs": ["12333123", "123123123"],
+    "eta": "20221115",5. queue_job.py
+
+6. stock_rule.py
+    "avis": [
+        {"orderId": "Z00008", "customerOrderId": "Z00008"}
+        // {"orderId": "Z00008", "customerOrderId": "Z00008"}
+
+    ]
+}
+
+---
+
+- Reorder home button se direct karna hoga
+
+
+---
+
+https://docs.google.com/spreadsheets/d/1dEyxUSEoOQLwYpE-qS23G96xgoSZgFuPqQ4uGzbcD_M/edit?gid=1706029894#gid=1706029894

@@ -1,0 +1,43 @@
+user_readonly_stock_ext
+
+
+1️⃣ Assign the User to the Read-Only Group
+
+Go to Settings → Users & Companies → Users.
+
+Open the user you want to test (e.g., Test User).
+
+Scroll to Access Rights / Groups.
+
+Add the user to the group:
+
+Read-Only User → user_readonly.group_read_only_user
+
+
+This is the group your module checks in has_group().
+
+2️⃣ Test Stock Quant Creation
+
+Log in as that user.
+
+Go to Inventory → Operations → Products on Hand / Inventory Adjustments.
+
+Try to create a new stock quant / inventory record.
+
+Expected behavior:
+
+Error popup:
+
+The requested operation cannot be completed due to security restrictions.
+Please contact your system administrator.
+
+
+You cannot save the record.
+
+3️⃣ Test Stock Quant Editing
+
+Try to edit an existing stock quant.
+
+Expected behavior: same AccessError.
+
+Normal users (not in the read-only group) should be able to create/edit normally.
