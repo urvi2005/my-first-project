@@ -1,0 +1,155 @@
+<odoo>
+    <record id="view_sale_order_line_scayle_form" model="ir.ui.view">
+        <field name="name">sale.order.line.scayle.form</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="delete">False</attribute>
+                <attribute name="edit">False</attribute>
+                <attribute name="create">False</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_qty']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_uom']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <label for="product_uom_qty" />
+                    <div name="product_uom_qty" class="o_row">
+                        <field name="product_uom_qty" />
+                        <field name="product_uom" />
+                    </div>
+            </xpath>
+            <xpath expr="//field[@name='qty_invoiced']" position="after">
+                    <field name="is_prescription_line" />
+                    <field name="is_crossdock" />
+                    <field name="frame_product_id" />
+                    <field name="glass_product_id" />
+                    <field name="product_packaging_id" />
+                    <!-- T-02810: Added new field -->
+                    <field name="current_status" />
+                    <!-- # T-03030 : New field -->
+                    <field name="is_subscription_line" />
+            </xpath>
+            <xpath expr="//field[@name='price_total']" position="after">
+                <label for="customer_lead" />
+                    <div name="lead">
+                        <field name="customer_lead" class="oe_inline" /> days
+                    </div>
+                    <field name="route_id" />
+            </xpath>
+            <xpath expr="//group" position="after">
+                <group>
+                    <div
+                        name="invoice_lines"
+                        groups="base.group_no_one"
+                        invisible="display_type"
+                        colspan="2"
+                    >
+                                    <label for="invoice_lines" />
+                                    <field name="invoice_lines" />
+                                </div>
+                    </group>
+                <group>
+                <separator
+                        string="eShop Line Bindings"
+                        groups="connector.group_connector_manager"
+                        colspan="2"
+                        invisible="not scayle_bind_ids"
+                    />
+                <field
+                        name="scayle_bind_ids"
+                        nolabel="1"
+                        readonly="1"
+                        groups="connector.group_connector_manager"
+                        colspan="2"
+                        invisible="not scayle_bind_ids"
+                    >
+                    <tree delete="false" edit="false" create="false">
+                        <field name="backend_id" />
+                        <field name="external_id" />
+                        <field name="scayle_quantity" />
+                        <field name="cancel_in_odoo" />
+                        <field name="cancel_sync_to_scayle" />
+                        <field name="shipment_created" />
+                        <field name="shipment_sync_to_scayle" />
+                        <field name="return_created" />
+                        <field name="return_sync_to_scayle" />
+                        <!--T-02313 Add the scayle warehouse_reference_key.
+                        Add company_id in tree binding due to view error.-->
+                        <field name="company_id" invisible="1" />
+                        <field name="warehouse_reference_key" optional="hide" />
+                    </tree>
+                    <form delete="false" edit="false" create="false">
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="backend_id" />
+                                    <field name="external_id" />
+                                    <field name="product_id" />
+                                    <field name="scayle_quantity" />
+                                    <field name="eshop_price_with_tax" />
+                                    <field name="eshop_price_without_tax" />
+                                    <field name="eshop_tax_amount" />
+                                    <field name="eshop_tax_rate" />
+                                </group>
+                                <group>
+                                    <field name="cancel_in_odoo" />
+                                    <field name="cancel_sync_to_scayle" />
+                                    <field name="shipment_created" />
+                                    <field name="shipment_sync_to_scayle" />
+                                    <field name="return_created" />
+                                    <field name="return_sync_to_scayle" />
+                                    <!--T-02313 Add the scayle warehouse_reference_key.
+                                    Add company_id in tree binding due to view error.-->
+                                    <field name="company_id" invisible="1" />
+                                    <field name="warehouse_reference_key" />
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </group>
+                <group name="eshop_fields" groups="connector.group_connector_manager">
+                    <group>
+                        <field name="eshop_cancel_status" />
+                        <field name="eshop_shipment_status" />
+                        <field name="eshop_return_status" />
+                    </group>
+                </group>
+        </xpath>
+        </field>
+    </record>
+    <!-- Inherit sale order view # T-02767 -->
+    <record
+        id="view_order_form_inherit_sale_stock_inherit_connector_scayle"
+        model="ir.ui.view"
+    >
+        <field name="name">sale.order.form.sale.stock.inherit.connector.scayle</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock" />
+        <field name="arch" type="xml">
+            <!-- Remove optional hide for route_id in tree view T-02767 -->
+            <xpath
+                expr="//field[@name='order_line']/tree/field[@name='route_id']"
+                position="attributes"
+            >
+                <attribute name="optional" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

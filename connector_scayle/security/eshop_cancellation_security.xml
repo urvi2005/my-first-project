@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <!-- #T-03065 - Group for eShop cancellation Rights -->
+    <record id="group_eshop_cancellation" model="res.groups">
+        <field name="name">eShop cancellation</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+
+    <!-- #T-03104 - Group for eShop Refund the Return Rights -->
+    <record id="group_eshop_refund_for_return" model="res.groups">
+        <field name="name">eShop Refund the Return</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+</odoo>

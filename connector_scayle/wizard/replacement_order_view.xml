@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- #T-02873 Replacement Order form view -->
+    <record id="view_replacement_order_form" model="ir.ui.view">
+        <field name="name">replacement.order.form</field>
+        <field name="model">replacement.order</field>
+        <field name="arch" type="xml">
+            <form string="Replacement Delivery">
+                <sheet>
+                    <group>
+                        <field name="sale_order_id" readonly="1" />
+                        <field name="replacement_reason" />
+                    </group>
+                    <field name="replacement_order_line_ids">
+                        <tree editable="top" create="0">
+                            <field
+                                name="product_id"
+                                options="{'no_create': True, 'no_open': True}"
+                                force_save="1"
+                            />
+                            <field name="quantity" />
+                            <field name="sale_order_line_id" column_invisible="True" />
+                        </tree>
+                    </field>
+                </sheet>
+                <footer>
+                    <button
+                        string="Confirm Replacement"
+                        type="object"
+                        name="action_confirm_replacement"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_replacement_order" model="ir.actions.act_window">
+        <field name="name">Replacement Order</field>
+        <field name="res_model">replacement.order</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_replacement_order_form" />
+    </record>
+</odoo>

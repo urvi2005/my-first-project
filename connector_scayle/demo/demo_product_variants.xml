@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Added demo data for the test cases # T-02250 -->
+    <record id="demo_product_1" model="product.product">
+        <field name="name">DemoProduct1</field>
+        <field name="default_code">1022643</field>
+        <field name="lst_price">100.00</field>
+        <field name="invoice_policy">delivery</field>
+    </record>
+
+    <record id="demo_product_2" model="product.product">
+        <field name="name">DemoProduct2</field>
+        <field name="default_code">738854</field>
+        <field name="lst_price">200.00</field>
+        <field name="invoice_policy">delivery</field>
+    </record>
+
+    <record id="demo_product_3" model="product.product">
+        <field name="name">Demo Shipping Method</field>
+        <field name="default_code">Demo</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="delivery.product_category_deliveries" />
+        <field name="sale_ok" eval="False" />
+        <field name="purchase_ok" eval="False" />
+        <field name="list_price">10.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+
+    <!-- Added demo data for shipping method for the test cases # T-02250 -->
+    <record id="scayle_shipping_method" model="delivery.carrier">
+        <field name="name">Demo Shipping Method</field>
+        <field name="fixed_price">0.0</field>
+        <field name="free_over" eval="True" />
+        <field name="amount">100</field>
+        <field name="sequence">1</field>
+        <field name="delivery_type">fixed</field>
+        <field name="product_id" ref="demo_product_3" />
+        <field name="eshop_carrier_code">POST_AT</field>
+    </record>
+</odoo>

@@ -1,0 +1,79 @@
+<odoo>
+    <!-- #T-02935 Form view for blacklist customer filter -->
+    <record id="view_blacklist_customer_filter_form" model="ir.ui.view">
+        <field name="name">blacklist.customer.filter.form</field>
+        <field name="model">blacklist.customer.filter</field>
+        <field name="arch" type="xml">
+            <form string="Blacklist Filter">
+                <sheet>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="text-bg-danger"
+                        invisible="active"
+                    />
+                    <field name="active" invisible="1" />
+                    <group>
+                        <field name="name" required="1" />
+                        <!-- #T-03107 added field-->
+                        <field name="domain_type" />
+                    </group>
+                    <group>
+                        <field
+                            name="domain"
+                            widget="domain"
+                            options="{'model': 'res.partner'}"
+                            invisible="domain_type != 'partner'"
+                        />
+
+                        <field
+                            name="domain"
+                            widget="domain"
+                            options="{'model': 'product.product'}"
+                            invisible="domain_type != 'product'"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- #T-02935 Tree view for blacklist customer filter -->
+    <record id="view_blacklist_customer_filter_tree" model="ir.ui.view">
+        <field name="name">blacklist.customer.filter.tree</field>
+        <field name="model">blacklist.customer.filter</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="domain" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- #T-02935 search view for blacklist customer filter -->
+    <record id="view_blacklist_customer_filter_search" model="ir.ui.view">
+        <field name="name">blacklist.customer.filter.search</field>
+        <field name="model">blacklist.customer.filter</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter
+                    string="Archived"
+                    name="archived"
+                    domain="[('active','=',False)]"
+                />
+            </search>
+        </field>
+    </record>
+
+
+    <!-- #T-02935 Action view for blacklist customer filter -->
+    <record id="action_blacklist_customer_filter" model="ir.actions.act_window">
+        <field name="name">Blacklist Filter</field>
+        <field name="res_model">blacklist.customer.filter</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Blacklist Filter.</p>
+        </field>
+    </record>
+</odoo>

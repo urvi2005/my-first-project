@@ -1,0 +1,70 @@
+<odoo>
+    <!-- Search view for scayle shop-->
+    <record id="scayle_shop_view_search" model="ir.ui.view">
+        <field name="name">scayle.shop.view.search</field>
+        <field name="model">scayle.shop</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="sales_team_id" />
+                <field name="partner_id" />
+            </search>
+        </field>
+    </record>
+    <!-- Tree view for scayle shop-->
+    <record id="scayle_shop_view_tree" model="ir.ui.view">
+        <field name="name">scayle.shop.view.tree</field>
+        <field name="model">scayle.shop</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="sales_team_id" required="1" />
+                <field name="partner_id" required="1" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for scayle shop-->
+    <record id="scayle_shop_view_form" model="ir.ui.view">
+        <field name="name">scayle.shop.view.form</field>
+        <field name="model">scayle.shop</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <label for="name" class="oe_edit_only" />
+                    <h1>
+                        <field name="name" class="oe_inline" />
+                    </h1>
+                    <group>
+                        <field name="sales_team_id" required="1" />
+                        <field name="partner_id" required="1" />
+                        <!-- #T-03084 New fields for reimbursement configurations -->
+                        <field name="is_prevent_quick_reimbursement" />
+                        <field
+                            name="threshold_return_amount"
+                            required="is_prevent_quick_reimbursement"
+                            invisible="not is_prevent_quick_reimbursement"
+                        />
+                        <field
+                            name="ecommerce_categ_ids"
+                            required="is_prevent_quick_reimbursement"
+                            invisible="not is_prevent_quick_reimbursement"
+                            widget="many2many_tags"
+                        />
+                        <!-- #T-02946 Added new fields -->
+                        <field name="za_enable" />
+                        <field name="za_branch_partner_id" invisible="not za_enable" />
+                        <!-- #T-02965 new field for tax -->
+                        <field name="kls_tax_id" invisible="not za_enable" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="scayle_shop_action" model="ir.actions.act_window">
+        <field name="name">Scayle Shop</field>
+        <field name="res_model">scayle.shop</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="scayle_shop_view_tree" />
+    </record>
+</odoo>

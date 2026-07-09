@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<record id="view_scayle_sale_order_line_tree_cancel" model="ir.ui.view">
+    <!-- #T-03065 Added tree view for scayle.sale.order.line for eShop cancellation wizard  -->
+    <field name="name">scayle.sale.order.line.tree.cancel</field>
+    <field name="model">scayle.sale.order.line</field>
+    <field name="arch" type="xml">
+        <tree create="false" edit="false" delete="false">
+            <header>
+                <button
+                        name="action_cancel_selected_lines"
+                        type="object"
+                        string="Mark as Cancelled in Odoo"
+                        class="btn-primary"
+                        display="always"
+                        confirm="Are you sure you want to cancel the selected lines in Odoo?"
+                    />
+            </header>
+            <field name="product_id" string="Product" />
+            <!-- #T-03115 changed scayle_quantity instead of product_uom_qty
+                 to prevent duplicate quantity display in the wizard -->
+            <field name="scayle_quantity" string="Qty" sum="Total Qty" />
+            <field name="price_unit" string="Unit Price" />
+            <field name="cancel_in_odoo" invisible="1" />
+        </tree>
+    </field>
+</record>
+
+<record id="view_scayle_refund_line_tree" model="ir.ui.view">
+    <!-- #T-03104 Added tree view for scayle.sale.order.line for eShop refund wizard  -->
+    <field name="name">scayle.sale.order.line.tree.refund</field>
+    <field name="model">scayle.sale.order.line</field>
+    <field name="arch" type="xml">
+        <tree create="false" edit="false" delete="false">
+            <header>
+                <button
+                        name="action_refund_selected_lines"
+                        type="object"
+                        string="Refund Products to Scayle (eShop)"
+                        class="btn-primary"
+                        display="always"
+                        confirm="Are you sure you want to refund the selected lines in to Scayle (eShop)?"
+                    />
+            </header>
+            <field name="external_id" string="Sale Order Line" />
+        </tree>
+    </field>
+</record>
+</odoo>

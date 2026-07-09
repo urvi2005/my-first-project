@@ -1,0 +1,122 @@
+interactions:
+  - request:
+      body: {string: '{ "addresses": { "billing": { "additional": "Lower Austria",
+            "city": "Schlag", "collectionPoint": null, "countryCode": "AT", "firstName":
+            "Doris", "gender": "f", "houseNumber": "96", "lastName": "Oliver",
+            "phoneNumber": "06819526526", "street": "Aspernstrasse",
+            "streetHouseNumber": "96 Aspernstrasse", "zipCode": "2813" }, "shipping": {
+            "additional": "Lower Austria", "city": "Lehen", "collectionPoint": null,
+            "countryCode": "AT", "firstName": "Doris", "gender": "f", "houseNumber":
+            "9", "lastName": "Oliver", "phoneNumber": "06819526526", "state": null,
+            "street": "Untere Neugasse", "streetHouseNumber": "43 Untere Neugasse",
+            "zipCode": "3281" } }, "branchNumber": "0722", "carrier": { "key": "POST_AT"
+            }, "companyId": 1000, "cost": { "costCapture": 61690, "tax": { "vat": {
+            "amount": 11535 } }, "withTax": 61690,
+            "withTaxWithMembershipDiscountWithoutServiceCosts": 61690, "withoutTax":
+            50155, "withoutTaxWithMembershipDiscount": 50155 }, "countryCode": "AT",
+            "customData": { "branchNumber": "0722" }, "customer": { "customData": [],
+            "email": "dorisoliver2345@example.com", "publicKey": "763", "referenceKey":
+            "763", "taxNumber": null, "vendorReferenceKey": null }, "customerPublicKey":
+            null, "fulfillingMerchantKey": "fim", "id": 15174, "items": [ {
+            "currencyCode": "EUR", "customData": { "aybaOttoReservationDetails": [] },
+            "id": 28306, "localizedName": "Fielmann BD 039 MOD SUN CL", "merchantKey":
+            "default", "merchantProductVariantId": 5059,
+            "merchantProductVariantReferenceKey": "1022643", "merchantReservationKey":
+            null, "name": "Fielmann BD 039 MOD SUN CL", "orderItemId": "1968655",
+            "packagingGroupId": null, "price": 9900, "priceWithoutTax": 8049,
+            "productVariantId": 5059, "quantity": 1, "shippingWarehouseReferenceKey":
+            "WH1", "tax": 23, "taxAmount": 1851, "vendorReferenceKey": null,
+            "vendorSize": null, "warehouseReferenceKey": "WH1" }, { "currencyCode":
+            "EUR", "customData": { "aybaOttoReservationDetails": [] }, "id": 28307,
+            "localizedName": "RAY-BAN RB 3025 AVIATOR", "merchantKey": "default",
+            "merchantProductVariantId": 7916, "merchantProductVariantReferenceKey":
+            "738854", "merchantReservationKey": null, "name": "Ray-Ban RB 3025 AVIATOR",
+            "orderItemId": "1968656", "packagingGroupId": null, "price": 41890,
+            "priceWithoutTax": 34057, "productVariantId": 7916, "quantity": 1,
+            "shippingWarehouseReferenceKey": "WH1", "tax": 23, "taxAmount": 7833,
+            "vendorReferenceKey": null, "vendorSize": null, "warehouseReferenceKey":
+            "WH1" }, { "currencyCode": "EUR", "customData": {
+            "aybaOttoReservationDetails": [] }, "id": 28308, "localizedName": "Fielmann
+            BD 039 MOD SUN CL", "merchantKey": "default", "merchantProductVariantId":
+            5059, "merchantProductVariantReferenceKey": "1022643",
+            "merchantReservationKey": null, "name": "Fielmann BD 039 MOD SUN CL",
+            "orderItemId": "1968657", "packagingGroupId": null, "price": 9900,
+            "priceWithoutTax": 8049, "productVariantId": 5059, "quantity": 1,
+            "shippingWarehouseReferenceKey": "WH1", "tax": 23, "taxAmount": 1851,
+            "vendorReferenceKey": null, "vendorSize": null, "warehouseReferenceKey":
+            "WH1" } ], "languageCode": "de_DE", "orderId": 99110901,
+            "orderReferenceKey": "fapl-10006-99110901", "paymentMethod":
+            "paypal_instant", "shopId": 10001, "shopKey": "fa", "vendorReferenceKey":
+            null }
+            '}
+      headers:
+        Accept: ["*/*"]
+        Accept-Encoding: ["gzip, deflate, br"]
+        Connection: [keep-alive]
+        User-Agent: [python-requests/2.19.1]
+      method: POST
+      uri: http://localhost/api/scayle/v1/order-create/123123123
+    response:
+      body: {string: '{ "addresses": { "billing": { "additional": "Lower Austria",
+            "city": "Schlag", "collectionPoint": null, "countryCode": "AT", "firstName":
+            "Doris", "gender": "f", "houseNumber": "96", "lastName": "Oliver",
+            "phoneNumber": "06819526526", "street": "Aspernstrasse",
+            "streetHouseNumber": "96 Aspernstrasse", "zipCode": "2813" }, "shipping": {
+            "additional": "Lower Austria", "city": "Lehen", "collectionPoint": null,
+            "countryCode": "AT", "firstName": "Doris", "gender": "f", "houseNumber":
+            "9", "lastName": "Oliver", "phoneNumber": "06819526526", "state": null,
+            "street": "Untere Neugasse", "streetHouseNumber": "43 Untere Neugasse",
+            "zipCode": "3281" } }, "branchNumber": "0722", "carrier": { "key": "POST_AT"
+            }, "companyId": 1000, "cost": { "costCapture": 61690, "tax": { "vat": {
+            "amount": 11535 } }, "withTax": 61690,
+            "withTaxWithMembershipDiscountWithoutServiceCosts": 61690, "withoutTax":
+            50155, "withoutTaxWithMembershipDiscount": 50155 }, "countryCode": "AT",
+            "customData": { "branchNumber": "0722" }, "customer": { "customData": [],
+            "email": "dorisoliver2345@example.com", "publicKey": "763", "referenceKey":
+            "763", "taxNumber": null, "vendorReferenceKey": null }, "customerPublicKey":
+            null, "fulfillingMerchantKey": "fim", "id": 15174, "items": [ {
+            "currencyCode": "EUR", "customData": { "aybaOttoReservationDetails": [] },
+            "id": 28306, "localizedName": "Fielmann BD 039 MOD SUN CL", "merchantKey":
+            "default", "merchantProductVariantId": 5059,
+            "merchantProductVariantReferenceKey": "1022643", "merchantReservationKey":
+            null, "name": "Fielmann BD 039 MOD SUN CL", "orderItemId": "1968655",
+            "packagingGroupId": null, "price": 9900, "priceWithoutTax": 8049,
+            "productVariantId": 5059, "quantity": 1, "shippingWarehouseReferenceKey":
+            "WH1", "tax": 23, "taxAmount": 1851, "vendorReferenceKey": null,
+            "vendorSize": null, "warehouseReferenceKey": "WH1" }, { "currencyCode":
+            "EUR", "customData": { "aybaOttoReservationDetails": [] }, "id": 28307,
+            "localizedName": "RAY-BAN RB 3025 AVIATOR", "merchantKey": "default",
+            "merchantProductVariantId": 7916, "merchantProductVariantReferenceKey":
+            "738854", "merchantReservationKey": null, "name": "Ray-Ban RB 3025 AVIATOR",
+            "orderItemId": "1968656", "packagingGroupId": null, "price": 41890,
+            "priceWithoutTax": 34057, "productVariantId": 7916, "quantity": 1,
+            "shippingWarehouseReferenceKey": "WH1", "tax": 23, "taxAmount": 7833,
+            "vendorReferenceKey": null, "vendorSize": null, "warehouseReferenceKey":
+            "WH1" }, { "currencyCode": "EUR", "customData": {
+            "aybaOttoReservationDetails": [] }, "id": 28308, "localizedName": "Fielmann
+            BD 039 MOD SUN CL", "merchantKey": "default", "merchantProductVariantId":
+            5059, "merchantProductVariantReferenceKey": "1022643",
+            "merchantReservationKey": null, "name": "Fielmann BD 039 MOD SUN CL",
+            "orderItemId": "1968657", "packagingGroupId": null, "price": 9900,
+            "priceWithoutTax": 8049, "productVariantId": 5059, "quantity": 1,
+            "shippingWarehouseReferenceKey": "WH1", "tax": 23, "taxAmount": 1851,
+            "vendorReferenceKey": null, "vendorSize": null, "warehouseReferenceKey":
+            "WH1" } ], "languageCode": "de_DE", "orderId": 99110901,
+            "orderReferenceKey": "fapl-10006-99110901", "paymentMethod":
+            "paypal_instant", "shopId": 10001, "shopKey": "fa", "vendorReferenceKey":
+            null }
+            '}
+      headers:
+        Cache-Control: ["no-store, no-cache, must-revalidate"]
+        Connection: [keep-alive]
+        Content-Type: [application/json; charset=utf-8]
+        Date: ["Thu, 08 Sep 2022 05:38:29 GMT"]
+        Expires: ["Jan 23 23:59:59 2023 GMT"]
+        Server: [nginx/1.14.0 (Ubuntu)]
+        Set-Cookie:
+          ["expires=Fri, 30-Jun-2017 15:27:02 GMT; path=/; domain=scayle; HttpOnly"]
+        Transfer-Encoding: [chunked]
+        Vary: [Accept-Encoding]
+        X-Frame-Options: [SAMEORIGIN]
+        content-length: ["1378"]
+      status: {code: 200, message: OK}

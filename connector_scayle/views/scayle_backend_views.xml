@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_scayle_backend_form" model="ir.ui.view">
+        <field name="name">scayle.backend.form</field>
+        <field name="model">scayle.backend</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('connector.group_connector_manager'))]"
+        />
+        <field name="arch" type="xml">
+            <form string="Scayle Backend">
+                <header>
+                    <button
+                        name="generate_odoo_scayle_token"
+                        type="object"
+                        class="oe_highlight"
+                        string="Generate Odoo Scayle Token"
+                    />
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button
+                            class="oe_stat_button"
+                            name="toggle_test_mode"
+                            type="object"
+                            icon="fa-play"
+                        >
+                            <field name="test_mode" invisible="1" />
+                            <span
+                                class="o_stat_text text-success"
+                                invisible='test_mode'
+                            >Production</span>
+                            <span
+                                class="o_stat_text text-warning"
+                                invisible='not test_mode'
+                            >Test</span>
+                        </button>
+                    </div>
+                    <widget
+                        name="web_ribbon"
+                        title="Test Mode"
+                        bg_color="bg-warning"
+                        invisible="not test_mode"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        title="Production"
+                        bg_color="bg-success"
+                        invisible="test_mode"
+                    />
+                    <label for="name" class="oe_edit_only" />
+                    <h1>
+                        <field name="name" class="oe_inline" />
+                    </h1>
+                    <group
+                        name="scayle"
+                        string="Scayle Configuration"
+                        groups="base.group_system"
+                    >
+                        <group>
+                            <field name="version" groups="base.group_system" />
+                            <field
+                                name="location"
+                                placeholder="e.g. http://my.scayle.com"
+                                string="Location"
+                                groups="base.group_system"
+                                invisible="test_mode"
+                                required="not test_mode"
+                            />
+                            <field
+                                name="test_location"
+                                placeholder="e.g. http://my.scayle.com"
+                                string="Location"
+                                groups="base.group_system"
+                                invisible="not test_mode"
+                                required="test_mode"
+                            />
+                        </group>
+                        <group>
+                            <field
+                                name="shop_key"
+                                string="Shop Key"
+                                groups="base.group_system"
+                                required="1"
+                            />
+                            <field
+                                name="token"
+                                password="1"
+                                string="Token"
+                                groups="base.group_system"
+                                required="not test_mode"
+                                invisible="test_mode"
+                            />
+                            <field
+                                name="test_token"
+                                password="1"
+                                string="Token"
+                                groups="base.group_system"
+                                required="test_mode"
+                                invisible="not test_mode"
+                            />
+                            <!-- Add new field # T-02402 -->
+                            <field name="code" string="Code" />
+                            <field name="shop_id" string="Shop Id" required="1" />
+                            <field name="backend_group_id" required="1" />
+                        </group>
+                    </group>
+                    <group name="main_configuration" string="Main Configuration">
+                        <field name="warehouse_ids" widget="many2many_tags" />
+                        <field name="default_pricelist_id" />
+                        <field
+                            name="country_id"
+                            string="Country"
+                            groups="base.group_system"
+                            required="1"
+                        />
+                    </group>
+                    <notebook>
+                        <page
+                            name="advanced_configuration"
+                            string="Advanced Configuration"
+                        >
+                        <group>
+                            <!-- T-02428: Added Group for Default Configuration -->
+                            <group
+                                    name="default_configuration"
+                                    string="Default Configuration"
+                                >
+                                <!-- #T-02845 Added new field -->
+                                <field
+                                        name="sunglasses_product"
+                                        invisible="not test_mode"
+                                    />
+                                <field name="company_id" required="1" />
+                                <field name="scayle_shop_id" required="1" />
+                                <field name="default_lang_id" widget="selection" />
+                                <!-- # T-02491 added new field for responsible user -->
+                                <field name="activity_user_id" />
+                                <field
+                                        name="odoo_scayle_token"
+                                        string="Stock Endpoint Token"
+                                        groups="base.group_system"
+                                        invisible="test_mode"
+                                    />
+                                <field
+                                        name="test_odoo_scayle_token"
+                                        string="Test Odoo Scayle Token"
+                                        groups="base.group_system"
+                                        invisible="not test_mode"
+                                    />
+                            </group>
+                            <group
+                                    name="cod_configurations"
+                                    string="COD Configurations"
+                                >
+                                <field name="cod_payment_method" />
+                            </group>
+                            <!-- T-02428: Added Group for Order Creation Configuration -->
+                            <group
+                                    name="order_creaton_configuration"
+                                    string="Order Creation"
+                                >
+                                <!-- Add new field # T-02362 -->
+                                <field name="is_import_customer_ref" />
+                                <field name="return_valid_if_exists" />
+                                <!-- Add new field # T-02494 -->
+                                <field name="is_phonenumber_required" />
+                            </group>
+                            <!-- T-02428: Added Group for Prefix Configuration -->
+                            <group
+                                    name="prefix_configuration"
+                                    string="Prefix Configuration"
+                                >
+                                <field name="sale_prefix" placeholder="scayle-" />
+                                <field name="return_prefix" required="1" />
+                            </group>
+                            <!-- T-02428: Added Group for EndPoint Configuration -->
+                            <group
+                                    name="end_point_configuration"
+                                    string="EndPoint Configuration"
+                                >
+                                <field name="stock_endpoint" />
+                                <field name="order_creation_endpoint" />
+                            </group>
+                            <group
+                                    name="auto_export_configuration"
+                                    string="Auto Configuration"
+                                >
+                                <field name="auto_confirm_order" />
+                                <field name="auto_export_shipments" />
+                                <field name="auto_export_cancel" />
+                                <field name="allow_sample_products" />
+                            </group>
+                            <!-- #T-02496 Added Group for Other Configuration -->
+                            <group
+                                    name="other_configuration"
+                                    string="Other Configuration"
+                                >
+                                <!-- #T-02496 Added new field -->
+                                <field name="debug_mode" />
+                                <field
+                                        name="scayle_url_ids"
+                                        invisible="not test_mode"
+                                        widget="many2many_tags"
+                                        placeholder="e.g. http://www.fm.com/api/scayle/v1/order-create/f5202a54-e7e3-440b-9a80-ad5a4950492b"
+                                    />
+                                <!-- T-03108: Added field to control MLTP consolidation -->
+                                <field name="apply_mltp_consolidation" />
+                            </group>
+                        </group>
+                        <group string="eShop Stock Ratio Configuration">
+                            <field name="stock_ratio_ids" nolabel="1" colspan="2">
+                                <tree>
+                                    <field name="product_categ_id" />
+                                    <field name="percentage" />
+                                </tree>
+                            </field>
+                        </group>
+                            <!-- T-02441: Added Fields for Scayle Panel URL -->
+                            <label
+                                for="scayle_panel_url_test"
+                                string="Staging Panel URL"
+                                invisible="not test_mode"
+                                colspan="2"
+                            />
+                            <field
+                                name="scayle_panel_url_test"
+                                nolabel="1"
+                                widget="ace"
+                                options="{'mode': 'python'}"
+                                invisible="not test_mode"
+                                required="test_mode"
+                            />
+                            <label
+                                for="scayle_panel_url_production"
+                                string="Production Panel URL"
+                                invisible="test_mode"
+                                colspan="2"
+                            />
+                            <field
+                                name="scayle_panel_url_production"
+                                nolabel="1"
+                                widget="ace"
+                                options="{'mode': 'python'}"
+                                invisible="test_mode"
+                                required="not test_mode"
+                            />
+                            <group string="Order URL and Language">
+                            <field name="senders7_order_url" />
+                            <field name="senders7_language" />
+                        </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_scayle_backend_tree" model="ir.ui.view">
+        <field name="name">scayle.backend.tree</field>
+        <field name="model">scayle.backend</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('connector.group_connector_manager'))]"
+        />
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="test_mode" column_invisible="1" />
+                <field name="location" invisible="test_mode" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_scayle_backend" model="ir.actions.act_window">
+        <field name="name">Scayle Backends</field>
+        <field name="res_model">scayle.backend</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_scayle_backend_tree" />
+    </record>
+</odoo>

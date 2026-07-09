@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="connector_base_ecommerce.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='connector']//group[@name='config_fields']//group[@name='eshop_partner_config_cp']"
+                position="inside"
+            >
+                <field
+                    name="scayle_backend_id"
+                    readonly="1"
+                    groups="connector.group_connector_manager"
+                />
+            </xpath>
+            <xpath expr="//page[@name='connector']" position="inside">
+                <!-- changes from !1311 -->
+                <!-- #T-02668: Added view for scayle_bind_ids -->
+                <separator string="Scayle Bindings" invisible="not scayle_bind_ids" />
+                <field
+                    name="scayle_bind_ids"
+                    nolabel="1"
+                    readonly="1"
+                    invisible="not scayle_bind_ids"
+                >
+                    <tree delete="false" edit="false" create="false">
+                        <field name="backend_id" />
+                        <field name="scayle_parent_id" />
+                    </tree>
+                    <form delete="false" edit="false" create="false">
+                        <sheet>
+                            <group>
+                                <field name="backend_id" />
+                                <field name="scayle_parent_id" />
+                                <field name="scayle_partner_key" />
+                                <field name="address_hash_code" />
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

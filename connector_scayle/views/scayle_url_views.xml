@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- T-02536 Scayle URLS tree view-->
+    <record id="view_scayle_url_tree" model="ir.ui.view">
+        <field name="name">scayle.url.tree</field>
+        <field name="model">scayle.url</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('connector.group_connector_manager'))]"
+        />
+        <field name="arch" type="xml">
+            <tree edit="1" create="1" delete="1" editable="bottom">
+                <field
+                    name="url"
+                    required="1"
+                    placeholder="e.g. http://www.fm.com/api/scayle/v1/order-create/f5202a54-e7e3-440b-9a80-ad5a4950492b"
+                />
+                <field name="scayle_backend_ids" widget="many2many_tags" />
+                <field name="active" column_invisible="1" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- T-02536 Scayle URLs search view-->
+    <record id="scayle_url_search_view" model="ir.ui.view">
+        <field name="name">scayle.url.search.view</field>
+        <field name="model">scayle.url</field>
+        <field name="arch" type="xml">
+            <search string="Scayle URLs">
+                <!-- <filter string="Can be Sold" name="filter_to_sell" domain="[('sale_ok','=',True)]"/> -->
+                <filter
+                    name="active"
+                    string="Archived"
+                    domain="[('active', '=', False)]"
+                />
+                <field name="active" />
+            </search>
+        </field>
+    </record>
+
+
+    <!-- T-02536 Scayle URLS actions-->
+    <record id="action_scayle_urls" model="ir.actions.act_window">
+        <field name="name">Scayle URLs</field>
+        <field name="res_model">scayle.url</field>
+        <!-- <field name="view_mode">tree,form</field> -->
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="scayle_url_search_view" />
+        <field name="view_id" ref="view_scayle_url_tree" />
+    </record>
+</odoo>

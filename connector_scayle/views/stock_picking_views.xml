@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_picking_form_inherit_scayle" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.scayle</field>
+        <field name="model">stock.picking</field>
+        <field
+            name="inherit_id"
+            ref="connector_base_ecommerce.view_picking_form_inherit_eshop"
+        />
+        <!--#T-02156 Add the connector managers rights for scayle inherit views-->
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <!--#T-02156 Add attrs for scayle backend id.-->
+                <page
+                    name="connector"
+                    string="Scayle Connector"
+                    invisible="not scayle_backend_id"
+                    groups="connector.group_connector_manager"
+                >
+                    <group string="Shipment" name="config_shipment">
+                        <group>
+                            <field name="sync_full_shipment_picking_scayle" />
+                        </group>
+                    </group>
+                    <group string="Configuration for return" name="config_return">
+                        <group>
+                            <field
+                                name="scayle_backend_id"
+                                widget="selection"
+                                readonly="1"
+                            />
+                            <field name="sync_return_picking_scayle" />
+                        </group>
+                    </group>
+                     <div>
+                        <separator string="Scayle Bindings" />
+                        <field name="scayle_return_bind_ids">
+                            <tree>
+                                <field name="backend_id" />
+                                <field name="external_id" />
+                            </tree>
+                            <form>
+                                <sheet>
+                                   <group>
+                                        <group>
+                                            <field name="odoo_id" />
+                                            <field name="backend_id" />
+                                        </group>
+                                    </group>
+                                    <separator />
+                                    <!-- Added api_payload_history_ids field in view # T-02320 -->
+                                    <div colspan="2">
+                                    <separator string="API Payload History" />
+                                    <field name="api_payload_history_ids" />
+                                    </div>
+                                </sheet>
+                            </form>
+                        </field>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add new fields in search view of stock picking # T6418 -->
+    <record id="view_picking_internal_search_inherit_scayle" model="ir.ui.view">
+        <field name="name">view.picking.internal.search.inherit.scayle</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search" />
+        <field name="arch" type="xml">
+            <!-- Add fields in filter # T6418 -->
+            <xpath expr="//search//filter[@name='available']" position="after">
+                <separator />
+                <filter
+                    string="Sync Return"
+                    name="sync_return_picking_scayle"
+                    domain="[('sync_return_picking_scayle', '=', True)]"
+                />
+                <filter
+                    string="Sync Full Shipment"
+                    name="sync_full_shipment_picking_scayle"
+                    domain="[('sync_full_shipment_picking_scayle', '=', True)]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

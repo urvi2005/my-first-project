@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record id="channel_scayle" model="queue.job.channel">
+        <field name="name">scayle</field>
+        <field name="parent_id" ref="queue_job.channel_root" />
+    </record>
+
+    <!-- scayle Sale Order -->
+    <record
+        id="job_function_scayle_sale_order_import_record"
+        model="queue.job.function"
+    >
+            <field name="model_id" ref="connector_scayle.model_scayle_sale_order" />
+            <field name="method">import_record</field>
+            <field
+            name="related_action"
+            eval='{"func_name": "related_action_open_view"}'
+        />
+            <field name="channel_id" ref="channel_scayle" />
+    </record>
+    <record
+        id="job_function_scayle_sale_order_export_fulfillment_record"
+        model="queue.job.function"
+    >
+        <field name="model_id" ref="connector_scayle.model_scayle_sale_order" />
+        <field name="method">export_record</field>
+        <field name="related_action" eval='{"func_name": "related_action_open_view"}' />
+        <field name="channel_id" ref="channel_scayle" />
+    </record>
+    <record
+        id="job_function_scayle_stock_picking_export_record"
+        model="queue.job.function"
+    >
+        <field
+            name="model_id"
+            ref="connector_scayle.model_scayle_stock_picking_return"
+        />
+        <field name="method">export_record</field>
+        <field name="related_action" eval='{"func_name": "related_action_open_view"}' />
+        <field name="channel_id" ref="channel_scayle" />
+    </record>
+        <!-- export cancel order job -->
+    <record id="job_function_scayle_cancel_sale_order" model="queue.job.function">
+        <field name="model_id" ref="connector_scayle.model_scayle_sale_order" />
+        <field name="method">export_cancel_record</field>
+        <field name="related_action" eval='{"func_name": "related_action_open_view"}' />
+        <field name="channel_id" ref="channel_scayle" />
+    </record>
+
+    <!-- create stock update dates # T-02331 -->
+    <record id="job_function_create_stock_update_dates" model="queue.job.function">
+        <field name="model_id" ref="connector_base_ecommerce.model_product_product" />
+        <field name="method">create_stock_update_dates</field>
+        <field name="channel_id" ref="channel_scayle" />
+    </record>
+
+    <!-- T-02536 Job Function To forward the payload URL -->
+    <record id="job_function_forward_data_to_payload" model="queue.job.function">
+        <field name="model_id" ref="connector_scayle.model_scayle_backend" />
+        <field name="method">forward_data_to_scayle_url</field>
+        <field name="channel_id" ref="channel_scayle" />
+    </record>
+
+    <!-- T-02852 Job Function for job error message-->
+    <record id="job_function_refused_order_delegation" model="queue.job.function">
+        <field name="model_id" ref="connector_scayle.model_scayle_backend" />
+        <field name="method">refused_order_delegation</field>
+        <field name="channel_id" ref="channel_scayle" />
+    </record>
+</odoo>

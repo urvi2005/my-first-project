@@ -1,0 +1,21 @@
+<odoo noupdate="1">
+    <!--
+        System Parameter to archieve customers based on order days. #T-02818
+    -->
+    <record id="archieve_customer_on_order_days" model="ir.config_parameter">
+        <field name="key">archive_customer.order_days</field>
+        <field name="value">365</field>
+    </record>
+    <!--#T-02816 System Parameter to activate restriction on partner address write.-->
+    <record id="restrict_partner_address_by_all" model="ir.config_parameter">
+        <field name="key">restrict_partner_address.by_all</field>
+        <field name="value" />
+    </record>
+    <!--
+        System Parameter to set the destination location for ndl return. #T-02872
+    -->
+    <record id="eshop_ndl_return_location" model="ir.config_parameter">
+        <field name="key">eshop_ndl_return_location.id</field>
+        <field name="value" />
+    </record>
+</odoo>

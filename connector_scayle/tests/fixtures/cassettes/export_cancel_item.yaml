@@ -1,0 +1,34 @@
+interactions:
+  - request:
+      body:
+        {
+          string:
+            '[{"carrier": "POST_AT", "countryCode": "AT", "deliveryDate":
+            "2022-11-02T00:00:00.000000Z", "items": [{"orderItemId": 1011, "returnKey":
+            "RET-1011"}, {"orderItemId": 1012, "returnKey": "RET-1012"}, {"orderItemId":
+            1013, "returnKey": "RET-1013"}], "orderId": 1211, "returnIdentCode":
+            "RET-1211", "shopKey": "fa"}]',
+        }
+      headers:
+        Accept: ["*/*"]
+        Accept-Encoding: ["gzip, deflate, br"]
+        Connection: [keep-alive]
+        User-Agent: [python-requests/2.19.1]
+      method: POST
+      uri: https://localhost:8069/api/public/order-item-cancelled
+    response:
+      body: {string: "[]"}
+      headers:
+        Cache-Control: ["no-store, no-cache, must-revalidate"]
+        Connection: [keep-alive]
+        Content-Type: [application/json; charset=utf-8]
+        Date: ["Thu, 08 Sep 2022 05:38:29 GMT"]
+        Expires: ["Jan 23 23:59:59 2023 GMT"]
+        Server: [nginx/1.14.0 (Ubuntu)]
+        Set-Cookie:
+          ["expires=Fri, 30-Jun-2017 15:27:02 GMT; path=/; domain=everstox; HttpOnly"]
+        Transfer-Encoding: [chunked]
+        Vary: [Accept-Encoding]
+        X-Frame-Options: [SAMEORIGIN]
+        content-length: ["1378"]
+      status: {code: 201, message: OK}

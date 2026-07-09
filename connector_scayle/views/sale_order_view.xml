@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_sale_order_scayle_form" model="ir.ui.view">
+        <field name="name">sale.order.scayle.form</field>
+        <field name="model">sale.order</field>
+        <field
+            name="inherit_id"
+            ref="connector_base_ecommerce.sale_order_normal_form_view_base_ecommerce"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//tree" position="attributes">
+                <!-- if is_prescription_line then blue -->
+                <attribute name="decoration-info">is_prescription_line</attribute>
+                <!-- if is_glass then green -->
+                <attribute
+                    name="decoration-success"
+                >is_glass and not is_prescription_line</attribute>
+                <!-- if is_crossdock then purple -->
+                <attribute name="decoration-primary">is_crossdock</attribute>
+                <!-- else then yellow -->
+                <attribute
+                    name="decoration-warning"
+                >not is_crossdock and not is_prescription_line and not is_glass</attribute>
+            </xpath>
+            <!-- #T-02935 added fields -->
+            <xpath expr="//field[@name='fielmann_order_number']" position="after">
+                <field name="blacklist_ids" readonly="1" widget="many2many_tags" />
+                <field name="is_blacklisted" invisible="1" />
+            </xpath>
+            <xpath expr="//page[@name='connector']" position="inside">
+                <div>
+                    <separator
+                        string="eShop Bindings"
+                        invisible="not scayle_bind_ids"
+                    />
+                    <field
+                        name="scayle_bind_ids"
+                        nolabel="1"
+                        readonly="1"
+                        invisible="not scayle_bind_ids"
+                    >
+                        <tree delete="false" edit="false" create="false">
+                            <field name="backend_id" />
+                            <field name="external_id" />
+                        </tree>
+                        <form delete="false" edit="false" create="false">
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="backend_id" />
+                                        <field name="external_id" />
+                                    </group>
+                                    <group
+                                        string="Price Configuration"
+                                        name='price_fields'
+                                    >
+                                        <field name="eshop_price_with_tax" />
+                                        <field name="eshop_price_without_tax" />
+                                        <field name="eshop_tax_amount" />
+                                        <field name="eshop_shipping_tax_amount" />
+                                        <field
+                                            name="eshop_shipping_without_tax_price"
+                                        />
+                                        <field name="eshop_shipping_with_tax_price" />
+                                        <field name="eshop_shipping_tax_rate" />
+                                    </group>
+                                    <!-- Added api_payload_history_ids field in view # T-02320 -->
+                                    <div
+                                        invisible="not api_payload_history_ids"
+                                        colspan="2"
+                                    >
+                                        <separator
+                                            string="API Payload History"
+                                            invisible="not api_payload_history_ids"
+                                        />
+                                        <field
+                                            name="api_payload_history_ids"
+                                            nolabel="1"
+                                        />
+                                    </div>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </div>
+            </xpath>
+            <xpath
+                expr="//page[@name='connector']//group[@name='eshop_status']"
+                position="attributes"
+            >
+                <attribute name="invisible">not scayle_bind_ids</attribute>
+            </xpath>
+            <!-- Add Confirmation Message -->
+            <xpath expr="//sheet/div[hasclass('oe_title')]" position="before">
+                <div
+                    class="alert alert-warning"
+                    role="alert"
+                    invisible="not scayle_bind_ids or is_blacklisted"
+                    groups="connector.group_connector_manager"
+                >
+                    <div class="row">
+                        <div
+                            class="col-1 text-center"
+                            style="padding-left: unset;padding-right: unset;"
+                        >
+                            <span><i
+                                    class="fa fa-info"
+                                    title="Info"
+                                    style="font-size:20px;"
+                                /></span>
+                        </div>
+                        <div
+                            class="col-10"
+                            style="padding-left: unset; padding-right: unset;"
+                        >
+                            <span>This record is controlled by an automated flow.
+                             Please be careful before doing manual changes,
+                             it may affect or send data/notifications to the remote system.</span>
+
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+            <!-- # T-02935 Added alert box for blacklist customer -->
+            <xpath expr="//sheet/div[hasclass('oe_title')]" position="before">
+                <div
+                    class="alert alert-danger shadow-sm rounded-3 mt-3 mb-2 d-flex align-items-center justify-content-between"
+                    role="alert"
+                    invisible="not scayle_bind_ids or not is_blacklisted or
+                    state in ('cancel','sale')"
+                    groups="connector.group_connector_manager"
+                    style="border: 1px solid #000000ff;"
+                >
+                    <div class="d-flex align-items-center">
+                        <i
+                            class="fa fa-exclamation-triangle text-danger me-3"
+                            style="font-size: 24px;"
+                            title="Blacklisted Delivery Customer Warning"
+                        />
+                        <div>
+                            <span class="fw-bold text-danger">
+                                 This Sale Order has been flagged due to <u
+                                >Blacklisted values</u>.<br />
+                                 Please either <b>Cancel</b> the order or <b
+                                >Process</b> it manually with caution.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button
+                            name="process_action_cancel"
+                            type="object"
+                            string="Cancel Order"
+                            invisible="eshop_cancel_status == 'cancelled'"
+                            class="btn btn-sm btn-outline-danger fw-bold shadow-sm"
+                        />
+                        <button
+                            name="process_order"
+                            type="object"
+                            string="Process Order"
+                            class="oe_highlight btn btn-sm fw-bold shadow-sm"
+                            confirm="Are you sure you want to process this order?"
+                        />
+                    </div>
+                </div>
+            </xpath>
+
+            <!-- Invisible "Send By Mail" button -->
+            <xpath expr="//button[@id='send_by_email_primary']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//button[@id='send_by_email']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <!-- # T-02935 : invisible confirm button -->
+            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                <attribute
+                    name="invisible"
+                >is_blacklisted or state != 'sent'</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                <attribute
+                    name="invisible"
+                >is_blacklisted or state != 'draft'</attribute>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button
+                    name="export_shipment_orders"
+                    type="object"
+                    class="oe_highlight"
+                    string="Create Shipment (eShop)"
+                    invisible="state not in ['sale','done'] or not scayle_bind_ids or eshop_shipment_status == 'full_shipment'"
+                    groups="connector.group_connector_manager"
+                />
+                <button
+                    name="export_cancel_orders"
+                    type="object"
+                    class="oe_highlight"
+                    string="Export Cancel (eShop)"
+                    invisible="state not in ['cancel'] or not scayle_bind_ids or eshop_cancel_status == 'cancelled'"
+                    groups="connector.group_connector_manager"
+                />
+                <!-- #T-03065 Added button for eShop cancellation wizard  -->
+                <button
+                    name="action_open_scayle_cancellation_wizard"
+                    type="object"
+                    class="oe_highlight"
+                    string="Scayle Order Cancelation (eShop)"
+                    invisible="not scayle_bind_ids or state != 'sale'"
+                    groups="connector_scayle.group_eshop_cancellation,base.group_erp_manager"
+                />
+                <!-- #T-03104 Added button for refund the return  -->
+                <button
+                    name="action_open_refund_the_return_wizard"
+                    type="object"
+                    class="oe_highlight"
+                    string="Refund the Return To Scayle (eShop)"
+                    invisible="not scayle_bind_ids or state != 'sale'"
+                    groups="connector_scayle.group_eshop_refund_for_return,base.group_erp_manager"
+                />
+                <field name="scayle_bind_ids" invisible="1" />
+                <button
+                    name="action_open_in_eshop_panel"
+                    type="object"
+                    class="oe_highlight"
+                    string="OPEN IN eShop"
+                    invisible="not scayle_bind_ids"
+                />
+                <!--T-02873 Add button to open the replacement order wizard -->
+                <button
+                    name="action_create_and_validate_replacement_order"
+                    type="object"
+                    string="Replacement Order"
+                    class="btn-secondary"
+                    invisible="not (scayle_bind_ids and state == 'sale')"
+                />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form" position="inside">
+
+                <separator
+                    string="eShop Line Bindings"
+                    invisible="not scayle_bind_ids"
+                    groups="connector.group_connector_manager"
+                />
+                <field
+                    name="scayle_bind_ids"
+                    nolabel="1"
+                    readonly="1"
+                    groups="connector.group_connector_manager"
+                >
+                    <tree delete="false" edit="false" create="false">
+                        <field name="backend_id" />
+                        <field name="external_id" />
+                        <field name="scayle_quantity" />
+                        <field name="cancel_in_odoo" />
+                        <field name="cancel_sync_to_scayle" />
+                        <field name="shipment_created" />
+                        <field name="shipment_sync_to_scayle" />
+                        <field name="return_created" />
+                        <field name="return_sync_to_scayle" />
+                        <!--T-02313 Add the scayle warehouse_reference_key.
+                        Add company_id in tree binding due to view error.-->
+                        <field name="company_id" invisible="1" />
+                        <field name="warehouse_reference_key" optional="hide" />
+                    </tree>
+                    <form delete="false" edit="false" create="false">
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="backend_id" />
+                                    <field name="external_id" />
+                                    <field name="product_id" />
+                                    <field name="scayle_quantity" />
+                                    <field name="eshop_price_with_tax" />
+                                    <field name="eshop_price_without_tax" />
+                                    <field name="eshop_tax_amount" />
+                                    <field name="eshop_tax_rate" />
+                                </group>
+                                <group>
+                                    <field name="cancel_in_odoo" />
+                                    <field name="cancel_sync_to_scayle" />
+                                    <field name="shipment_created" />
+                                    <field name="shipment_sync_to_scayle" />
+                                    <field name="return_created" />
+                                    <field name="return_sync_to_scayle" />
+                                    <!--T-02313 Add the scayle warehouse_reference_key.
+                                    Add company_id in tree binding due to view error.-->
+                                    <field name="company_id" invisible="1" />
+                                    <field name="warehouse_reference_key" />
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </xpath>
+            <!-- Moved to connector_base_ecommerce -->
+           <xpath
+                expr="//field[@name='order_line']/form/group[@name='eshop_fields']/group"
+                position="attributes"
+            >
+            <attribute name="invisible">not scayle_bind_ids</attribute>
+           </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree" position="inside">
+                <field
+                    name="eshop_cancel_status"
+                    optional="hide"
+                    column_invisible="not parent.scayle_bind_ids"
+                    groups="connector.group_connector_manager"
+                />
+                <field
+                    name="eshop_shipment_status"
+                    optional="hide"
+                    column_invisible="not parent.scayle_bind_ids"
+                    groups="connector.group_connector_manager"
+                />
+                <field
+                    name="eshop_return_status"
+                    optional="hide"
+                    column_invisible="not parent.scayle_bind_ids"
+                    groups="connector.group_connector_manager"
+                />
+            </xpath>
+            <!-- Moved to connector base ecommerce -->
+            <xpath
+                expr="//notebook/page[@name='eshop_price_info']"
+                position="attributes"
+            >
+                <attribute name="invisible">not scayle_bind_ids</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='eshop_price_info']" position="inside">
+                <separator string="SOL Price" />
+                <field name="scayle_line_ids">
+                    <tree>
+                        <field name="product_id" />
+                        <field
+                            name="eshop_price_with_tax"
+                            widget='monetary'
+                            options="{'currency_field': 'scayle_currency_id'}"
+                        />
+                        <field
+                            name="eshop_price_without_tax"
+                            widget='monetary'
+                            options="{'currency_field': 'scayle_currency_id'}"
+                        />
+                        <field
+                            name="eshop_tax_amount"
+                            widget='monetary'
+                            options="{'currency_field': 'scayle_currency_id'}"
+                        />
+                        <field name="eshop_tax_rate" />
+                        <field name="scayle_currency_id" column_invisible="1" />
+                    </tree>
+                    <form string="Linked Sale Line">
+                        <group>
+                            <field name="product_id" />
+                            <field
+                                name="eshop_price_with_tax"
+                                widget='monetary'
+                                options="{'currency_field': 'scayle_currency_id'}"
+                            />
+                            <field
+                                name="eshop_price_without_tax"
+                                widget='monetary'
+                                options="{'currency_field': 'scayle_currency_id'}"
+                            />
+                            <field
+                                name="eshop_tax_amount"
+                                widget='monetary'
+                                options="{'currency_field': 'scayle_currency_id'}"
+                            />
+                            <field name="eshop_tax_rate" />
+                            <field name="scayle_currency_id" invisible="1" />
+                        </group>
+                    </form>
+                </field>
+            </xpath>
+            <xpath
+                expr="//notebook/page[@name='other_information']//group[@name='sales_person']/field[@name='team_id']"
+                position="after"
+            >
+                <field name="scayle_shop_id" />
+            </xpath>
+            <!-- #T-02869 Add carrier_id field at SO form view -->
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field
+                    name="carrier_id"
+                    readonly="state not in ('draft', 'sent') or scayle_bind_ids"
+                />
+            </xpath>
+            <!-- #T-02862 New field for partner billing information -->
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field
+                    name="partner_billing_id"
+                    readonly="1"
+                    invisible="not partner_billing_id"
+                    groups="connector.group_connector_manager"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_scayle_sale_order_form" model="ir.ui.view">
+        <field name="name">scayle.sale.order.form</field>
+        <field name="model">scayle.sale.order</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('connector.group_connector_manager'))]"
+        />
+        <field name="arch" type="xml">
+            <form string="eShop Sales Orders">
+                <group>
+                    <field name="backend_id" />
+                    <field name="external_id" />
+                    <field name="scayle_date_order" />
+                </group>
+                <!-- T-02441: Added Button to form view to
+                              open order in scyale panel -->
+                <group>
+                    <label
+                        for="action_open_in_scayle_panel"
+                        string="Sale Order "
+                        class="oe_inline"
+                    />
+                    <button
+                        name="action_open_in_scayle_panel"
+                        type="object"
+                        class="oe_highlight"
+                        string="OPEN IN eShop"
+                    />
+                </group>
+            </form>
+        </field>
+    </record>
+    <!-- #T-02935 Filter for blacklist customer Filter -->
+    <record id="filter_scayle_sale_order" model="ir.ui.view">
+        <field name="name">view.sales.order.filter.base.ecommerce</field>
+        <field name="model">sale.order</field>
+        <field
+            name="inherit_id"
+            ref="connector_base_ecommerce.view_sales_order_filter_inherit_base_ecommerce"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='is_ndl_order']" position="after">
+                <filter
+                    name="blacklisted_customer"
+                    string="Blacklisted Customer"
+                    domain="[('is_blacklisted','=',True)]"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_scayle_sale_order_tree" model="ir.ui.view">
+        <field name="name">scayle.sale.order.tree</field>
+        <field name="model">scayle.sale.order</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('connector.group_connector_manager'))]"
+        />
+        <field name="arch" type="xml">
+            <tree>
+                <field name="backend_id" />
+                <field name="external_id" />
+                <!-- T-02441: Added Button in tree view to open order in scyale panel -->
+                <button
+                    name="action_open_in_scayle_panel"
+                    type="object"
+                    class="oe_highlight"
+                    string="OPEN IN eShop"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Inherit sale.order tree view and add field # T-01912-->
+    <record id="view_order_tree_inherit_tags" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.tags</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <!-- #T-02935 added field in tree view -->
+            <xpath expr="//field[@name='is_ndl_order']" position="after">
+                <field
+                    string="Blacklisted Customer"
+                    name="is_blacklisted"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit sale.order quotations tree view and add field #  T-02935-->
+    <record id="view_order_tree_quotation" model="ir.ui.view">
+        <field name="name">sale.order.tree.quotations</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding" />
+        <field name="arch" type="xml">
+            <!-- #T-02935 added field in tree view -->
+            <xpath expr="//field[@name='is_ndl_order']" position="after">
+                <field
+                    string="Blacklisted Customer"
+                    name="is_blacklisted"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+    <!-- Inherit sale.order(Quotation) tree view and add invisible #T-02506-->
+    <record id="view_quotation_tree_order_crossdock" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field
+            name="inherit_id"
+            ref="product_crossdock_sale.view_quotation_tree_inherit"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='crossdock_state']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit sale.order tree view and add invisible #T-02506 -->
+    <record id="view_order_tree_order_crossdock" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="product_crossdock_sale.view_order_tree_inherit" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='crossdock_state']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

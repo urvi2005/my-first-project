@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+        id="menu_scayle_root"
+        parent="connector.menu_connector_root"
+        name="Scayle"
+        sequence="10"
+        groups="connector.group_connector_manager"
+    />
+    <menuitem
+        id="menu_scayle_backend"
+        name="Backends"
+        parent="menu_scayle_root"
+        action="action_scayle_backend"
+    />
+
+    <menuitem
+        id="menu_scayle_url"
+        parent="menu_scayle_root"
+        name="Scayle Payload Forward URLs"
+        sequence="15"
+        groups="connector.group_connector_manager"
+        action="action_scayle_urls"
+    />
+
+    <menuitem
+        id="menu_scayle_shop"
+        name="Scayle Shops"
+        parent="menu_scayle_root"
+        action="scayle_shop_action"
+    />
+    <!-- #T-02935 New menu -->
+    <menuitem
+        id="menu_blacklist_customer_filter"
+        name="Blacklist Filter"
+        parent="menu_scayle_root"
+        groups="base.group_system"
+        action="action_blacklist_customer_filter"
+    />
+</odoo>
