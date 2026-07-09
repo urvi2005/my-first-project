@@ -1,0 +1,35 @@
+git checkout 19.0
+git checkout -b 19.0-T11038-mig-account_statement_import_ofx-BAD-URD
+git checkout 19.0-T11038-mig-account_statement_import_ofx-BAD-URD
+[WIP] [19.0] [T11038] [MIG] account_statement_import_ofx : Migration to 19.0
+git push
+git remote set-url github https://github.com/OCA/bank-statement-import.git
+git remote add github https://github.com/OCA/bank-statement-import.git
+git remote -v
+git fetch github
+git format-patch --keep-subject --stdout origin/19.0..github/18.0 -- account_statement_import_ofx | git am -3
+git push origin
+pre-commit run -a
+git add .
+git diff
+git status
+git commit -m "[IMP] [$TRACKING_NO] $MODULE: pre-commit auto fixes" --no-verify
+git commit -m "[IMP] [T11038] account_statement_import_ofx: pre-commit auto fixes" --no-verify
+git push origin
+git add .
+git commit -m "[MIG] [T11038] account_statement_import_ofx: Migration to 19.0 "
+git commit -m "[IMP] [T11038] account_statement_import_ofx: Apply suggested changes. "
+git commit -m "[IMP] [T11038] account_statement_import_ofx: Added test cases. "
+pre-commit run -a
+git push origin
+
+
+./odoo-bin --addons-path=addons,../oca-internal/ --db-filter=v19_CE_account_statement_import_ofx  -d v19_CE_account_statement_import_ofx  -i account_statement_import_ofx  -p 8019 --http-interface=0.0.0.0
+
+
+coverage run --source=../oca-internal/account_statement_import_ofx ./odoo-bin --addons-path=addons,../oca-internal/ --db-filter=v19_CE_account_statement_import_ofx  -d v19_CE_account_statement_import_ofx  -u account_statement_import_ofx  -p 8019 --http-interface=0.0.0.0 --stop-after-init --test-enable
+
+coverage report -m
+
+
+./odoo-bin --addons-path=addons,../oca-internal/ --db-filter=v19_CE_account_statement_import_ofx  -d v19_CE_account_statement_import_ofx  -i account_statement_import_ofx  -p 9019 --http-interface=0.0.0.0
