@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/urvi2005/my-first-project.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[user]
+	name = urvi2005
+	email = dehuniyaurvi@gmail.com
